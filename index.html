@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>طبقة | وكالة تصميم الهويات البصرية والمواقع والحملات الإعلانية — Tabaqa Media Agency</title>
+  <meta name="description" content="وكالة طبقة الإعلامية - نبتكر علامات تجارية فريدة، تصاميم سوشيال ميديا، إدارة حسابات، تطوير مواقع إلكترونية، وإدارة حملات إعلانية ممولة. أنت في أي طبقة؟">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/mark.svg">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="JellyRadio.css">
+</head>
+<body>
+
+  <!-- ================= TOP NAVIGATION BAR (SUBFRAME STYLE) ================= -->
+  <div class="header-wrapper">
+    <nav class="top-nav" aria-label="Main Navigation">
+      <!-- Original PDF Exact Tabaqa Full Logo -->
+      <a href="#" class="nav-brand" title="وكالة طبقة الإعلامية — Tabaqa Media Agency">
+        <img src="assets/logo.svg" alt="TABAQA MEDIA AGENCY" class="nav-logo-full">
+      </a>
+
+      <!-- Subframe Floating Centered Capsule Nav -->
+      <ul class="nav-links-capsule" id="nav-links">
+        <li><a href="#services" class="nav-link" data-i18n="navServices">الخدمات</a></li>
+        <li><a href="#calculator" class="nav-link" data-i18n="navCalculator">اكتشف طبقتك</a></li>
+        <li><a href="#showcase" class="nav-link" data-i18n="navShowcase">أعمالنا</a></li>
+        <li><a href="#faq" class="nav-link" data-i18n="navFaq">الأسئلة الشائعة</a></li>
+        <li><a href="#contact" class="nav-link" data-i18n="navContact">تواصل معنا</a></li>
+      </ul>
+
+      <!-- Navigation Actions -->
+      <div class="nav-actions">
+        <button class="lang-switch" id="lang-switch-btn">English</button>
+        <button class="btn btn-filled" onclick="sendWhatsAppQuote()" data-i18n="startProject">ابدأ مشروعك</button>
+        
+        <div class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <main>
+    <!-- ================= HERO DISPLAY SECTION WITH SLOW-MOTION FLOATING TRACK ================= -->
+    <section class="hero-section container">
+      
+      <!-- REACT BITS JELLY RADIO WITH SLOW MOTION FLOATING ANIMATION -->
+      <div class="subframe-3d-track-wrapper">
+        <div class="jelly-radio-container" role="radiogroup" aria-label="Services Select">
+          <button type="button" role="radio" aria-checked="true" class="jelly-radio-chip" data-active="true" id="hero-tab-1" onclick="switchHeroTab(1)">
+            <span class="jelly-radio-skin">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              <span data-i18n="heroTab1">هوية بصرية</span>
+            </span>
+          </button>
+          <button type="button" role="radio" aria-checked="false" class="jelly-radio-chip" data-active="false" id="hero-tab-2" onclick="switchHeroTab(2)">
+            <span class="jelly-radio-skin">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              <span data-i18n="heroTab2">تصاميم ومواقع</span>
+            </span>
+          </button>
+          <button type="button" role="radio" aria-checked="false" class="jelly-radio-chip" data-active="false" id="hero-tab-3" onclick="switchHeroTab(3)">
+            <span class="jelly-radio-skin">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              <span data-i18n="heroTab3">إعلانات وحسابات</span>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Hero Headline with Instrument Serif Flourish -->
+      <h1 class="hero-headline">
+        <span data-i18n="heroTitle">أنت في أي طبقة؟</span>
+        <span class="serif-flourish" data-i18n="heroSerifWord">— Which layer are you on?</span>
+      </h1>
+
+      <!-- Hero Dynamic Subhead -->
+      <p class="hero-subhead" id="hero-dynamic-subhead" data-i18n="heroSubhead">
+        نساعد العلامات التجارية والشركات على الارتفاع إلى الطبقة العلياء في سوقها عبر ابتكار الهويات البصرية، إدارة الحسابات، تصاميم السوشيال ميديا، وتطوير المواقع الاحترافية.
+      </p>
+
+      <!-- Hero Action CTAs -->
+      <div class="hero-ctas">
+        <button class="btn btn-filled" onclick="sendWhatsAppQuote()" style="padding: 12px 28px; font-size: 15px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span data-i18n="heroCtaPrimary">تحدث معنا عبر واتساب</span>
+        </button>
+
+        <a href="#showcase" class="btn btn-ghost" style="padding: 12px 28px; font-size: 15px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <span data-i18n="heroCtaSecondary">مشاهدة الأعمال (Watch demo)</span>
+        </a>
+      </div>
+
+      <!-- Pure Subframe Interactive UI Mockup Frame (No Photos) -->
+      <div class="hero-ui-mockup-frame">
+        <div class="mockup-top-bar">
+          <div class="mockup-dots">
+            <div class="mockup-dot"></div>
+            <div class="mockup-dot"></div>
+            <div class="mockup-dot"></div>
+          </div>
+          <span class="mockup-spec-tag">System Spec // Tabaqa v2.6</span>
+        </div>
+        <div class="mockup-grid-spec">
+          <div class="mockup-spec-card">
+            <span class="mockup-spec-tag">Brand Identity</span>
+            <div class="mockup-spec-title">نظام الهوية البصرية (Visual Identity)</div>
+            <div class="mockup-spec-desc">ابتكار الشعارات والدلائل الإرشادية ورموز العلامة التجارية بدقة عالية.</div>
+          </div>
+          <div class="mockup-spec-card">
+            <span class="mockup-spec-tag">Digital Systems</span>
+            <div class="mockup-spec-title">تطوير المواقع (Web Architecture)</div>
+            <div class="mockup-spec-desc">بناء واجهات مستخدم متقدمة متجاوبة 100% مع كافة الشاشات وأجهزة الجوال.</div>
+          </div>
+          <div class="mockup-spec-card">
+            <span class="mockup-spec-tag">Ad Performance</span>
+            <div class="mockup-spec-title">الحملات الممولة (Targeted Growth)</div>
+            <div class="mockup-spec-desc">استهداف دقيق وإدارة احترافية لمضاعفة العائد الاستثماري على الإعلانات.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= REACT BITS: STATS COUNTER BAR ================= -->
+    <section class="stats-bar-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-item-number" data-target="150">+150</div>
+            <div class="stat-item-label" data-i18n="stat1">هوية بصرية وتصميم متميز</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item-number" data-target="99">99%</div>
+            <div class="stat-item-label" data-i18n="stat2">نسبة رضا وتفاعل العملاء</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item-number" data-target="80">+80</div>
+            <div class="stat-item-label" data-i18n="stat3">موقع إلكتروني وصفحة هبوط</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item-number" data-target="5">+5M</div>
+            <div class="stat-item-label" data-i18n="stat4">مشاهدات حملات إعلانية ممولة</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= GRAYSCALE LOGO STRIP ================= -->
+    <section class="logo-strip-section container">
+      <div class="logo-strip-title" data-i18n="brandsTitle">العلامات والقطاعات التي نصعد بها</div>
+      <div class="logo-strip-grid">
+        <div class="logo-strip-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="4"/></svg>
+          LAYER STUDIO
+        </div>
+        <div class="logo-strip-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>
+          APOLLO MEDIA
+        </div>
+        <div class="logo-strip-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          OCTAVE VENTURES
+        </div>
+        <div class="logo-strip-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          VISTA BRANDING
+        </div>
+        <div class="logo-strip-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          PARADIGM TECH
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SERVICES SECTION WITH REACT BITS SPOTLIGHT CARDS ================= -->
+    <section class="section container" id="services">
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="servicesTitle">الخدمات الرئيسية</h2>
+        <p class="section-subhead" data-i18n="servicesSubhead">
+          منظومة متكاملة من الحلول الإبداعية والتقنية المصممة بعناية للوصول بشركتك لأعلى مستويات الاحترافية.
+        </p>
+      </div>
+
+      <div class="cards-grid">
+        <!-- Service 1: Visual Identity -->
+        <article class="spotlight-card">
+          <div class="service-card-inner">
+            <div class="card-header-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            </div>
+            <h3 class="card-title" data-i18n="s1Title">تصميم الهويات البصرية</h3>
+            <p class="card-desc" data-i18n="s1Desc">
+              نبتكر علامات تجارية فريدة تعبر عن هوية مشروعك وتترك انطباعاً احترافياً يدوم في أذهان عملائك.
+            </p>
+            <div class="card-footer">
+              <span class="card-tag" data-i18n="s1Tag">Branding & Identity</span>
+              <button class="btn btn-ghost" style="padding: 6px 14px; font-size: 13px;" onclick="sendWhatsAppQuote('تصميم الهويات البصرية')">طلب الخدمة</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Service 2: Social Media Design -->
+        <article class="spotlight-card">
+          <div class="service-card-inner">
+            <div class="card-header-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </div>
+            <h3 class="card-title" data-i18n="s2Title">تصاميم السوشيال ميديا</h3>
+            <p class="card-desc" data-i18n="s2Desc">
+              ننتج تصاميم إبداعية وجذابة مخصصة لمختلف منصات التواصل الاجتماعي لتعزيز حضورك الرقمي.
+            </p>
+            <div class="card-footer">
+              <span class="card-tag" data-i18n="s2Tag">Social Media Design</span>
+              <button class="btn btn-ghost" style="padding: 6px 14px; font-size: 13px;" onclick="sendWhatsAppQuote('تصاميم السوشيال ميديا')">طلب الخدمة</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Service 3: Account & Page Management -->
+        <article class="spotlight-card">
+          <div class="service-card-inner">
+            <div class="card-header-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="card-title" data-i18n="s3Title">إدارة الحسابات والصفحات</h3>
+            <p class="card-desc" data-i18n="s3Desc">
+              نتولى تخطيط المحتوى، جدولة النشر، والتفاعل مع المتابعين لضمان نمو مستمر وتفاعل حقيقي مع جمهورك.
+            </p>
+            <div class="card-footer">
+              <span class="card-tag" data-i18n="s3Tag">Account Management</span>
+              <button class="btn btn-ghost" style="padding: 6px 14px; font-size: 13px;" onclick="sendWhatsAppQuote('إدارة الحسابات والصفحات')">طلب الخدمة</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Service 4: Web Design & Development -->
+        <article class="spotlight-card">
+          <div class="service-card-inner">
+            <div class="card-header-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3 class="card-title" data-i18n="s4Title">تطوير وتصميم المواقع</h3>
+            <p class="card-desc" data-i18n="s4Desc">
+              نصمم ونبني مواقع إلكترونية وصفحات هبوط (Landing Pages) سريعة، متجاوبة مع الأجهزة الذكية، ومصممة خصيصاً لتحويل الزوار إلى عملاء دائمين.
+            </p>
+            <div class="card-footer">
+              <span class="card-tag" data-i18n="s4Tag">Web Development</span>
+              <button class="btn btn-ghost" style="padding: 6px 14px; font-size: 13px;" onclick="sendWhatsAppQuote('تطوير وتصميم المواقع')">طلب الخدمة</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Service 5: Paid Advertising Campaigns -->
+        <article class="spotlight-card">
+          <div class="service-card-inner">
+            <div class="card-header-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+            </div>
+            <h3 class="card-title" data-i18n="s5Title">إدارة الحملات الإعلانية الممولة</h3>
+            <p class="card-desc" data-i18n="s5Desc">
+              نخطط وننفذ إعلانات مدفوعة ومستهدفة بدقة للوصول إلى الجمهور المناسب وتحقيق أفضل عائد على استثمارك الإعلاني.
+            </p>
+            <div class="card-footer">
+              <span class="card-tag" data-i18n="s5Tag">Paid Ads & ROI</span>
+              <button class="btn btn-ghost" style="padding: 6px 14px; font-size: 13px;" onclick="sendWhatsAppQuote('إدارة الحملات الإعلانية الممولة')">طلب الخدمة</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= INTERACTIVE LAYER CALCULATOR ================= -->
+    <section class="section container" id="calculator">
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="calcTitle">اكتشف طبقتك الحالية</h2>
+        <p class="section-subhead" data-i18n="calcSubhead">
+          حدد مرحلة مشروعك الحالية وسنقوم بتوجيهك للخدمة الأكثر تأثيراً لنمو أعمالك.
+        </p>
+      </div>
+
+      <div class="calculator-box">
+        <div class="calc-options-grid">
+          <!-- Option 1 -->
+          <div class="calc-option-card selected">
+            <div class="calc-opt-title" data-i18n="calcOpt1Title">مرحلة التأسيس (الطبقة الأولى)</div>
+            <div class="calc-opt-desc" data-i18n="calcOpt1Desc">مشروع جديد يحتاج هوية بصرية قوية وموقع إلكتروني لبناء الثقة.</div>
+          </div>
+          <!-- Option 2 -->
+          <div class="calc-option-card">
+            <div class="calc-opt-title" data-i18n="calcOpt2Title">مرحلة النمو والتوسع (الطبقة الثانية)</div>
+            <div class="calc-opt-desc" data-i18n="calcOpt2Desc">مشروع قائم يرغب بزيادة المبيعات من خلال حملات إعلانية وتصاميم سوشيال ميديا مستمرة.</div>
+          </div>
+          <!-- Option 3 -->
+          <div class="calc-option-card">
+            <div class="calc-opt-title" data-i18n="calcOpt3Title">مرحلة السيطرة والريادة (الطبقة العلياء)</div>
+            <div class="calc-opt-desc" data-i18n="calcOpt3Desc">علامة تجارية بارزة تتطلب إدارة كاملة وتطوير موقع إلكتروني مخصص متكامل.</div>
+          </div>
+        </div>
+
+        <!-- Result Box -->
+        <div class="calc-result-box">
+          <div class="calc-result-text">
+            <h4 id="calc-result-title">الطبقة الأولى (التأسيسية)</h4>
+            <p id="calc-result-desc">نوصي بـ: تصميم الهوية البصرية + تطوير موقع إلكتروني احترافي لبناء الثقة.</p>
+          </div>
+          <button class="btn btn-filled" onclick="sendWhatsAppQuote()" data-i18n="calcResultBtn">
+            اطلب استشارة هذه الطبقة عبر واتساب
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PRODUCT SHOWCASE FRAME SECTION ================= -->
+    <section class="section container" id="showcase">
+      <div class="section-header">
+        <h2 class="section-title">إطار استعراض الأعمال</h2>
+        <p class="section-subhead">نموذج حي لطريقة عرض الواجهات والهويات الاحترافية داخل إطارات Subframe ذات الحواف الدقيقة.</p>
+      </div>
+
+      <div class="product-showcase-frame">
+        <div class="showcase-inner">
+          <div>
+            <span class="card-tag" style="margin-bottom: 12px; display: inline-block;" id="showcase-tag">Visual Systems // 2026</span>
+            <h3 style="font-size: 28px; font-weight: 700; margin-bottom: 16px;" id="showcase-title">تصميم الهويات الرقمية بعمق أحادي اللون</h3>
+            <p style="color: var(--color-pencil); font-size: 15px; line-height: 1.5; margin-bottom: 24px;" id="showcase-desc">
+              تتميز أعمال طبقة بالوضوح البصري والتركيز على التفاصيل الدقيقة، مما يمنح العلامة التجارية وقاراً وسلطة في سوقها المستهدف.
+            </p>
+            <button class="btn btn-filled" onclick="sendWhatsAppQuote('استعراض المحفظة الإبداعية')">طلب ملف الأعمال (Portfolio)</button>
+          </div>
+
+          <div class="showcase-mockup">
+            <div class="mockup-header">
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+              <div class="mockup-dot"></div>
+            </div>
+            <div class="mockup-lines-box">
+              <div class="mockup-line" style="width: 85%;"></div>
+              <div class="mockup-line" style="width: 95%;"></div>
+              <div class="mockup-line" style="width: 60%;"></div>
+              <div class="mockup-line" style="width: 75%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= REACT BITS ACCORDION / FAQ SECTION ================= -->
+    <section class="section container" id="faq">
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="faqTitle">الأسئلة الشائعة</h2>
+        <p class="section-subhead" data-i18n="faqSubhead">كل ما تحتاج معرفته عن طريقة عملنا، المواعيد، وآلية الاستلام والتنفيذ.</p>
+      </div>
+
+      <div class="accordion-wrapper">
+        <div class="accordion-item open">
+          <div class="accordion-header">
+            <span data-i18n="faq1Q">كم يستغرق بناء وتصاميم الهوية البصرية والموقع؟</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="accordion-content" data-i18n="faq1A">
+            تستغرق الهوية البصرية المتكاملة عادة من 7 إلى 14 يوم عمل، بينما يستغرق تطوير الموقع الإلكتروني وتصميمه من 10 إلى 20 يوم عمل بحسب حجم وتفاصيل المشروع.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span data-i18n="faq2Q">كيف يتم متابعة الحملات الإعلانية وإدارة الحسابات؟</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="accordion-content" data-i18n="faq2A">
+            نوفر لكم تقارير أسبوعية وشهرية شاملة توضح نتائج الوصول، معدلات التفاعل، وتكلفة العائد على الاستثمار الإعلاني (ROAS) مع تحليلات التفاعل الحقيقي.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span data-i18n="faq3Q">هل المواقع الإلكترونية مصممة ومتجاوبة مع الجوال؟</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="accordion-content" data-i18n="faq3A">
+            نعم، جميع مواقنا وصفحات الهبوط تبنى بأحدث المعايير البرمجية لتكون متجاوبة 100% مع كافة الشاشات والأجهزة الذكية مع سرعة تحميل فائقة وترتيب محركات البحث SEO.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span data-i18n="faq4Q">كيف نبدأ المشروع وكيف يتم الدفع؟</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="accordion-content" data-i18n="faq4A">
+            نبدأ بجلسة استشارية وتحديد المتطلبات، يعقبها تقديم العقد وتوزيع الدفعات إلى مرحلتين (دفعة التأسيس ودفعة التسليم النهائي).
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT & PHONE BANNER ================= -->
+    <section class="section container" id="contact">
+      <div class="contact-banner">
+        <h2 class="contact-banner-title" data-i18n="contactTitle">جاهز للصعود إلى الطبقة القادمة؟</h2>
+        <p class="contact-banner-desc" data-i18n="contactDesc">
+          تواصل معنا مباشرة لنبدأ في دراسة مشروعك وبناء خطتك الإبداعية.
+        </p>
+
+        <div class="contact-details-row">
+          <!-- WhatsApp / Direct Call -->
+          <a href="https://wa.me/966533774116" target="_blank" class="contact-pill-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span data-i18n="phoneLabel">0533774116</span>
+          </a>
+
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/tabaqa.agency/" target="_blank" class="contact-pill-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <span data-i18n="instagramLabel">@tabaqa.agency</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= RICH COMPREHENSIVE AGENCY FOOTER (100% WORKING LINKS) ================= -->
+  <footer class="footer-rich">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Col 1: Brand & Mission -->
+        <div class="footer-col-brand">
+          <div class="footer-logo-row">
+            <img src="assets/logo-white.svg" alt="Tabaqa Media Agency" style="height: 52px; width: auto;">
+          </div>
+          <p class="footer-brand-desc" data-i18n="footerBio">
+            وكالة إعلامية متخصصة في ابتكار الهويات البصرية الفريدة، تصاميم التواصل الاجتماعي، إدارة الصفحات، وتطوير المواقع المتقدمة للحملات الإعلانية الناجحة.
+          </p>
+          <a href="https://wa.me/966533774116" target="_blank" class="footer-whatsapp-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+            <span>تحدث معنا عبر الواتساب (0533774116)</span>
+          </a>
+        </div>
+
+        <!-- Col 2: Services -->
+        <div>
+          <h4 class="footer-col-title" data-i18n="footerServicesTitle">الخدمات الإبداعية</h4>
+          <ul class="footer-col-links">
+            <li><a href="#services" data-i18n="s1Title">تصميم الهويات البصرية</a></li>
+            <li><a href="#services" data-i18n="s2Title">تصاميم السوشيال ميديا</a></li>
+            <li><a href="#services" data-i18n="s3Title">إدارة الحسابات والصفحات</a></li>
+            <li><a href="#services" data-i18n="s4Title">تطوير وتصميم المواقع</a></li>
+            <li><a href="#services" data-i18n="s5Title">إدارة الحملات الممولة</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Navigation -->
+        <div>
+          <h4 class="footer-col-title" data-i18n="footerNavTitle">روابط سريعة</h4>
+          <ul class="footer-col-links">
+            <li><a href="#services" data-i18n="navServices">الخدمات</a></li>
+            <li><a href="#calculator" data-i18n="navCalculator">حاسبة الطبقات</a></li>
+            <li><a href="#showcase" data-i18n="navShowcase">معرض الأعمال</a></li>
+            <li><a href="#faq" data-i18n="navFaq">الأسئلة الشائعة</a></li>
+            <li><a href="#contact" data-i18n="navContact">اتصل بنا</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Office & Info -->
+        <div>
+          <h4 class="footer-col-title" data-i18n="footerContactTitle">معلومات التواصل</h4>
+          <div class="footer-contact-info">
+            <div class="footer-contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <a href="https://wa.me/966533774116" target="_blank">0533774116</a>
+            </div>
+            <div class="footer-contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              <a href="https://www.instagram.com/tabaqa.agency/" target="_blank">@tabaqa.agency</a>
+            </div>
+            <div class="footer-contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span data-i18n="workHours">الأحد - الخميس: 9:00 ص - 6:00 م</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span data-i18n="locationText">المملكة العربية السعودية</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 5: Inquiry Newsletter Box -->
+        <div class="footer-newsletter-box">
+          <h4 class="footer-col-title" data-i18n="footerInquiryTitle">طلب استشارة سريعة</h4>
+          <p style="font-size: 13px; color: #a0a0a0; line-height: 1.4;">اكتب فكرة مشروعك وسيتم تحويلك مباشرة لواتساب الوكالة:</p>
+          <div class="footer-input-group">
+            <input type="text" id="footer-inquiry-input" placeholder="اكتب اسمك أو فكرة مشروعك...">
+            <button class="btn btn-filled" style="padding: 8px 14px; font-size: 13px;" onclick="sendFooterInquiry()">إرسال</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <div data-i18n="footerCopy">© 2026 جميع الحقوق محفوظة لـ وكالة طبقة الإعلامية (Tabaqa Agency)</div>
+        <button class="back-to-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+          <span>أعلى الصفحة</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Persistent Floating Vintage WhatsApp Button -->
+  <a href="https://wa.me/966533774116" target="_blank" class="vintage-whatsapp-float" title="تحدث معنا على الواتساب — WhatsApp">
+    <svg class="whatsapp-icon" viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.326-1.48C8.016 23.468 9.96 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.848 0-3.578-.496-5.073-1.361l-.364-.21-3.766.882.903-3.663-.231-.377A9.957 9.957 0 0 1 2 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/>
+    </svg>
+    <span class="vintage-whatsapp-text">واتساب — WhatsApp</span>
+  </a>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>

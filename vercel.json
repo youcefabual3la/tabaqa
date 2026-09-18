@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "name": "tabaqa-agency",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}
