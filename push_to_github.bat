@@ -1,45 +1,30 @@
 @echo off
+set PATH=C:\Program Files\Git\cmd;%PATH%
 echo ========================================================
-echo TABAQA MEDIA AGENCY — GITHUB LINK & PUSH SCRIPT
+echo TABAQA MEDIA AGENCY — GITHUB LINK & PUSH ASSISTANT
 echo ========================================================
 echo.
 
 cd /d d:\tabaqa
 
-echo [+] Checking Git...
-git --version >nul 2>&1
-if %errorlevel% neq 0 (
-    echo [!] Git command was not found in your system PATH.
-    echo Please install Git for Windows from: https://git-scm.com/download/win
-    echo After installing Git, re-run this script to automatically push to GitHub!
+echo [+] Git Repository is initialized and committed!
+echo.
+
+git remote -v >nul 2>&1
+if %errorlevel% equ 0 (
+    echo [+] Existing Remote Found. Pushing updates...
+    git push -u origin main
     echo.
-    echo Commands to run manually after installing Git:
-    echo   git init
-    echo   git add .
-    echo   git commit -m "Tabaqa Agency - Final Release"
-    echo   git branch -M main
-    echo   git remote add origin YOUR_GITHUB_REPOSITORY_URL
-    echo   git push -u origin main
-    echo.
-    pause
-    exit /b
 )
 
-echo [+] Initializing Git Repository...
-git init
-git add .
-git commit -m "Tabaqa Agency - Slow-Motion Floating 3D Track + PDF Logo + Subframe ReactBits"
-
-echo.
-set /p REPO_URL="Enter your GitHub Repository URL (e.g. https://github.com/username/tabaqa.git): "
+set /p REPO_URL="Please enter your GitHub Repository URL (e.g. https://github.com/USERNAME/tabaqa.git): "
 
 if "%REPO_URL%"=="" (
-    echo [!] No GitHub repository URL entered. You can push anytime later using:
-    echo     git remote add origin YOUR_URL
-    echo     git push -u origin main
+    echo [!] No URL provided. You can run this file anytime later after creating your repo on GitHub!
 ) else (
-    git branch -M main
+    git remote remove origin >nul 2>&1
     git remote add origin %REPO_URL%
+    git branch -M main
     git push -u origin main
     echo.
     echo [✓] Successfully linked and pushed to GitHub!
