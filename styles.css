@@ -266,16 +266,17 @@ button, input, select, textarea {
   z-index: 999;
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 24px;
+  gap: 8px;
+  padding: 10px 16px;
   background: linear-gradient(135deg, #1c1b18 0%, #111111 100%);
-  border: 1.5px solid rgba(212, 175, 55, 0.5); /* Vintage brass/gold edge */
+  border: 1.5px solid rgba(212, 175, 55, 0.5);
   border-radius: var(--radius-pills);
   color: #f5f5f5;
+  font-size: 13px;
+  font-weight: 600;
   box-shadow: 
-    0 12px 32px rgba(0, 0, 0, 0.4),
-    inset 0 1px 1px rgba(255, 255, 255, 0.3),
-    0 0 12px rgba(37, 211, 102, 0.25);
+    0 8px 24px rgba(0, 0, 0, 0.35),
+    0 0 10px rgba(37, 211, 102, 0.2);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   animation: floatSlow 4s ease-in-out infinite;
@@ -1206,12 +1207,34 @@ button, input, select, textarea {
 
 /* Mobile Adjustments */
 @media (max-width: 768px) {
+
+  /* === NAV === */
+  .header-wrapper {
+    top: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .top-nav {
+    padding: 8px 14px;
+  }
+
+  .nav-logo-full {
+    height: 36px;
+    max-width: 130px;
+  }
+
+  .nav-actions .btn-filled {
+    font-size: 12px;
+    padding: 7px 12px;
+  }
+
   .nav-links-capsule {
     display: none;
     position: absolute;
     top: calc(100% + 8px);
-    left: 16px;
-    right: 16px;
+    left: 10px;
+    right: 10px;
     background: var(--color-page-canvas);
     border: 1px solid var(--color-hairline-border);
     border-radius: 16px;
@@ -1219,6 +1242,7 @@ button, input, select, textarea {
     flex-direction: column;
     gap: 16px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    z-index: 200;
   }
 
   .nav-links-capsule.open {
@@ -1229,45 +1253,133 @@ button, input, select, textarea {
     display: flex;
   }
 
+  /* === HERO === */
   .hero-section {
-    padding-top: 20px;
+    padding-top: 12px;
+    padding-bottom: 40px;
   }
 
   .subframe-3d-track-wrapper {
-    margin-bottom: 40px;
+    margin-bottom: 28px;
+    overflow-x: auto;
+    padding: 0 4px;
   }
 
   .jelly-radio-container {
-    width: 100%;
-    justify-content: space-around;
+    gap: 4px;
+    padding: 6px 10px;
   }
 
   .jelly-radio-skin {
-    padding: 0 12px;
-    font-size: 12px;
+    padding: 0 10px;
+    font-size: 11px;
+    height: 34px;
+  }
+
+  .hero-headline {
+    font-size: clamp(26px, 8vw, 40px);
+    letter-spacing: -1.5px;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .serif-flourish {
+    font-size: 0.95em;
+  }
+
+  .hero-subhead {
+    font-size: 14px;
+    margin-bottom: 24px;
+    padding: 0 4px;
   }
 
   .hero-ctas {
     width: 100%;
     flex-direction: column;
+    gap: 10px;
   }
 
   .hero-ctas .btn {
     width: 100%;
+    justify-content: center;
+    font-size: 14px;
   }
 
+  .hero-ui-mockup-frame {
+    padding: 18px;
+    margin-top: 28px;
+  }
+
+  .mockup-grid-spec {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* === STATS === */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .stat-item-number {
+    font-size: 32px;
+  }
+
+  /* === CARDS === */
   .cards-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
-  .vintage-whatsapp-float {
+  /* === SECTIONS === */
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* === FOOTER === */
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  /* === FLOATING WHATSAPP — ICON ONLY, COMPACT === */
+  .vintage-whatsapp-float,
+  .vintage-whatsapp-float:not(.icon-only) {
     bottom: 20px;
     left: 16px;
-    padding: 10px 18px;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
   }
 
   [dir="ltr"] .vintage-whatsapp-float {
     left: auto;
     right: 16px;
   }
+
+  .vintage-whatsapp-float .vintage-whatsapp-text,
+  .vintage-whatsapp-float .vintage-wa-text {
+    display: none;
+  }
+
+  .vintage-whatsapp-float .whatsapp-icon,
+  .vintage-whatsapp-float .vintage-wa-icon {
+    width: 24px;
+    height: 24px;
+  }
 }
+
+/* Small phones */
+@media (max-width: 400px) {
+  .hero-headline {
+    font-size: 24px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

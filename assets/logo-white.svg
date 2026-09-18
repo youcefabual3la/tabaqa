@@ -1,28 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 190" width="100%" height="100%">
-  <!-- TABAQA MEDIA AGENCY — WHITE / DARK MODE VECTOR LOGO -->
-  <g transform="translate(150, 68) scale(0.68)">
-    <!-- 1. Top Inverted Triangle -->
-    <polygon points="0,-75 36,-75 18,-35" fill="#4a76bc"/>
-    
-    <!-- 2. Left Dark Navy Polygon -->
-    <polygon points="-65,-25 -30,-85 10,-15 -30,55" fill="#3b62a3"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 160" width="100%" height="100%">
+  <!-- TABAQA MEDIA AGENCY — WHITE VERSION FOR DARK BACKGROUNDS -->
+  
+  <polygon points="52,12 82,12 58,52" fill="#4e6bbf"/>
+  <polygon points="30,30 58,5 80,42 52,78 28,68" fill="#3d58a8"/>
+  <polygon points="75,8 118,15 130,55 95,65 72,42" fill="#4a64b5"/>
+  <polygon points="80,5 100,5 90,22" fill="#5a74cc"/>
 
-    <!-- 3. Center-Right Dark Navy Polygon -->
-    <polygon points="12,-80 60,-15 85,30 32,50 8,-15" fill="#436cb0"/>
+  <polygon points="22,60 60,28 118,50 88,88" fill="#5ec4e8" opacity="0.80"/>
+  <polygon points="22,60 60,28 118,50 88,88" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.7"/>
 
-    <!-- 4. Translucent Cyan Overlay Polygon 1 (Left/Center) -->
-    <polygon points="-90,40 -30,-35 75,20 30,85" fill="#58c4ec" opacity="0.85"/>
-    <polygon points="-90,40 -30,-35 75,20 30,85" stroke="#ffffff" stroke-width="2.2" fill="none" opacity="0.9"/>
+  <polygon points="75,35 128,22 145,65 102,72" fill="#50bce0" opacity="0.76"/>
+  <polygon points="75,35 128,22 145,65 102,72" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.7"/>
 
-    <!-- 5. Translucent Cyan Overlay Polygon 2 (Right Wing) -->
-    <polygon points="8,-20 80,-65 125,20 58,40" fill="#4dbde7" opacity="0.8"/>
-    <polygon points="8,-20 80,-65 125,20 58,40" stroke="#ffffff" stroke-width="2.2" fill="none" opacity="0.9"/>
+  <polygon points="35,55 90,12 148,68" fill="none" stroke="#ffffff" stroke-width="1.4" opacity="0.6"/>
 
-    <!-- 6. Sharp Contour Contour Lines -->
-    <polygon points="-55,15 35,-70 105,35" stroke="#ffffff" stroke-width="1.8" fill="none" opacity="0.85"/>
-  </g>
-
-  <!-- TYPOGRAPHY FOR DARK BACKGROUNDS -->
-  <text x="150" y="152" font-family="'Inter', 'Cairo', system-ui, sans-serif" font-weight="900" font-size="28" letter-spacing="3" fill="#ffffff" text-anchor="middle">TABAQA</text>
-  <text x="150" y="174" font-family="'Inter', 'Cairo', system-ui, sans-serif" font-weight="600" font-size="9.5" letter-spacing="5.5" fill="#e0e0e0" text-anchor="middle">MEDIA AGENCY</text>
+  <text x="140" y="120" font-family="'Arial Black','Arial', 'Inter', sans-serif" font-weight="900" font-size="24" letter-spacing="2.5" fill="#ffffff" text-anchor="middle">TABAQA</text>
+  <text x="140" y="140" font-family="'Arial', 'Inter', sans-serif" font-weight="500" font-size="8" letter-spacing="5" fill="#cccccc" text-anchor="middle">MEDIA AGENCY</text>
 </svg>
