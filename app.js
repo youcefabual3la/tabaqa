@@ -22,7 +22,7 @@ const translations = {
 
     // Hero
     heroTitle: "أنت في أي طبقة؟",
-    heroSerifWord: "— Which layer are you on?",
+    heroSerifWord: "Which layer are you on?",
     heroSubhead: "نساعد العلامات التجارية والشركات على الارتفاع إلى الطبقة العلياء في سوقها عبر ابتكار الهويات البصرية، إدارة الحسابات، تصاميم السوشيال ميديا، وتطوير المواقع الاحترافية.",
     heroCtaPrimary: "تحدث معنا عبر واتساب",
     heroCtaSecondary: "مشاهدة الأعمال (Watch demo)",
@@ -34,7 +34,7 @@ const translations = {
     stat4: "مشاهدات حملات إعلانية ممولة",
     
     // Partner strip
-    brandsTitle: "العلامات والقطاعات التي نصعد بها",
+    brandsTitle: "العلامات والقطاعات الوطنية التي نصعد بها",
     
     // Services Section
     servicesTitle: "الخدمات الرئيسية",
@@ -97,6 +97,8 @@ const translations = {
     footerInquiryTitle: "طلب استشارة سريعة",
     workHours: "الأحد - الخميس: 9:00 ص - 6:00 م",
     locationText: "المملكة العربية السعودية",
+    footerWhatsappBtn: "تحدث معنا عبر الواتساب (0533774116)",
+    backToTop: "أعلى الصفحة",
     footerCopy: "© 2026 جميع الحقوق محفوظة لـ وكالة طبقة الإعلامية (Tabaqa Agency)"
   },
   en: {
@@ -117,7 +119,7 @@ const translations = {
     
     // Hero
     heroTitle: "Which layer are you on?",
-    heroSerifWord: "— أنت في أي طبقة؟",
+    heroSerifWord: "أنت في أي طبقة؟",
     heroSubhead: "We help brands and companies ascend to the top tier in their market through bespoke visual identities, social media management, strategic ads, and high-converting web development.",
     heroCtaPrimary: "Chat on WhatsApp",
     heroCtaSecondary: "Watch Demo",
@@ -129,7 +131,7 @@ const translations = {
     stat4: "Paid Campaign Impressions Delivered",
     
     // Partner strip
-    brandsTitle: "Brands and Industries We Elevate",
+    brandsTitle: "Saudi Brands & Sectors We Elevate",
     
     // Services Section
     servicesTitle: "Core Services",
@@ -192,6 +194,8 @@ const translations = {
     footerInquiryTitle: "Quick Consultation",
     workHours: "Sun - Thu: 9:00 AM - 6:00 PM",
     locationText: "Kingdom of Saudi Arabia",
+    footerWhatsappBtn: "Chat on WhatsApp (0533774116)",
+    backToTop: "Back to Top",
     footerCopy: "© 2026 All Rights Reserved — Tabaqa Media Agency"
   }
 };
@@ -203,17 +207,39 @@ function setLanguage(lang) {
   document.documentElement.setAttribute('lang', lang);
   document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
   
+  // Update language button text
+  const switchText = document.getElementById('lang-switch-text');
+  if (switchText) {
+    switchText.textContent = lang === 'ar' ? 'English' : 'عربي';
+  }
   const switchBtn = document.getElementById('lang-switch-btn');
-  if (switchBtn) {
+  if (switchBtn && !switchText) {
     switchBtn.textContent = lang === 'ar' ? 'English' : 'عربي';
   }
 
+  // Update all i18n elements (preserve innerHTML for elements with child icons)
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (translations[lang] && translations[lang][key]) {
       el.textContent = translations[lang][key];
     }
   });
+
+  // Hero bilingual title — always show both, but swap primary/secondary
+  const heroTitleMain = document.querySelector('.hero-title-main');
+  const heroTitleEn = document.querySelector('.hero-title-en');
+  if (heroTitleMain && heroTitleEn) {
+    if (lang === 'ar') {
+      heroTitleMain.textContent = 'أنت في أي طبقة؟';
+      heroTitleEn.textContent = 'Which layer are you on?';
+      heroTitleEn.setAttribute('dir', 'ltr');
+    } else {
+      heroTitleMain.textContent = 'Which layer are you on?';
+      heroTitleMain.style.fontFamily = "'Inter','Arial',sans-serif";
+      heroTitleEn.textContent = 'أنت في أي طبقة؟';
+      heroTitleEn.removeAttribute('dir');
+    }
+  }
 
   updateCalculatorResult();
 }

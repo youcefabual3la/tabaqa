@@ -148,9 +148,9 @@ button, input, select, textarea {
 }
 
 .nav-logo-full {
-  height: 48px;
+  height: 38px;
   width: auto;
-  max-width: 180px;
+  max-width: 175px;
   object-fit: contain;
 }
 
@@ -179,7 +179,7 @@ button, input, select, textarea {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
 }
 
 /* Buttons */
@@ -226,20 +226,32 @@ button, input, select, textarea {
 .lang-switch {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  padding: 6px 12px;
+  gap: 6px;
+  height: 38px;
+  padding: 0 14px;
   border-radius: var(--radius-pills);
+  background: rgba(0, 0, 0, 0.03);
   border: 1px solid var(--color-hairline-border);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
-  color: var(--color-pencil);
+  color: var(--color-ink-black);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
 }
 
 .lang-switch:hover {
-  color: var(--color-ink-black);
-  border-color: var(--color-divider-mid);
+  background: rgba(0, 0, 0, 0.06);
+  border-color: #d1d5db;
+}
+
+.nav-cta-btn {
+  height: 38px;
+  padding: 0 18px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: var(--radius-pills);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 /* Mobile Hamburger Toggle */
@@ -424,26 +436,33 @@ button, input, select, textarea {
 }
 
 .hero-headline {
-  font-family: var(--font-arabic-heading);
-  font-weight: 800;
-  font-size: clamp(34px, 5.5vw, 76px);
-  line-height: 1.15;
-  letter-spacing: -2.5px;
-  color: var(--color-ink-black);
+  text-align: center;
   max-width: 1040px;
   margin-top: 12px;
   margin-bottom: 24px;
 }
 
-.serif-flourish {
-  font-family: var(--font-instrument-serif);
-  font-weight: 400;
-  font-style: italic;
-  letter-spacing: -2px;
+.hero-title-main {
+  display: block;
+  font-family: var(--font-arabic-heading);
+  font-weight: 800;
+  font-size: clamp(32px, 6vw, 68px);
+  line-height: 1.18;
   color: var(--color-ink-black);
-  font-size: 1.05em;
-  padding: 0 6px;
-  display: inline-block;
+  letter-spacing: -2px;
+}
+
+.hero-title-en {
+  display: block;
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(22px, 4.5vw, 50px);
+  color: #53575A;
+  direction: ltr !important;
+  unicode-bidi: isolate;
+  margin-top: 8px;
+  line-height: 1.25;
 }
 
 .hero-subhead {
@@ -661,48 +680,88 @@ button, input, select, textarea {
   border-radius: var(--radius-pills);
 }
 
-/* Grayscale Logo Strip */
+/* Saudi Brands Continuous Slow-Motion Marquee Strip */
 .logo-strip-section {
-  padding-top: 32px;
-  padding-bottom: 48px;
+  padding-top: 28px;
+  padding-bottom: 36px;
   border-top: 1px solid var(--color-hairline-border);
   border-bottom: 1px solid var(--color-hairline-border);
   margin-bottom: var(--section-gap);
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.015);
 }
 
 .logo-strip-title {
-  font-size: var(--text-caption);
-  letter-spacing: 0.1em;
+  font-size: 12px;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-faint-graphite);
+  color: var(--color-pencil);
   text-align: center;
-  margin-bottom: 24px;
-  font-weight: 600;
+  margin-bottom: 20px;
+  font-weight: 700;
 }
 
-.logo-strip-grid {
+.marquee-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 6px 0;
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.marquee-track {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(24px, 5vw, 64px);
-  flex-wrap: wrap;
+  gap: 16px;
+  width: max-content;
+  animation: marqueeRightToLeft 42s linear infinite;
+  will-change: transform;
+}
+
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+[dir="rtl"] .marquee-track {
+  animation: marqueeRtl 42s linear infinite;
+}
+
+@keyframes marqueeRtl {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(50%); }
+}
+
+@keyframes marqueeRightToLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .logo-strip-item {
-  font-size: 15px;
+  font-size: 13.5px;
   font-weight: 700;
-  color: var(--color-faint-graphite);
-  display: flex;
+  color: var(--color-ink-black);
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  opacity: 0.7;
-  transition: opacity 0.2s ease, color 0.2s ease;
+  gap: 10px;
+  padding: 8px 18px;
+  background: var(--color-page-canvas);
+  border: 1px solid var(--color-hairline-border);
+  border-radius: var(--radius-pills);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  white-space: nowrap;
   user-select: none;
+  transition: all 0.25s ease;
+}
+
+.logo-strip-item svg {
+  color: #53575A;
+  flex-shrink: 0;
 }
 
 .logo-strip-item:hover {
-  opacity: 1;
-  color: var(--color-pencil);
+  border-color: #53575A;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
 /* Section Common Layout */
@@ -1211,30 +1270,47 @@ button, input, select, textarea {
   /* === NAV === */
   .header-wrapper {
     top: 8px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-bottom: 20px;
   }
 
   .top-nav {
-    padding: 8px 14px;
+    padding: 8px 12px;
+    gap: 8px;
   }
 
   .nav-logo-full {
-    height: 36px;
-    max-width: 130px;
+    height: 28px;
+    max-width: 125px;
   }
 
-  .nav-actions .btn-filled {
-    font-size: 12px;
-    padding: 7px 12px;
+  .nav-actions {
+    gap: 6px;
+  }
+
+  .lang-switch {
+    height: 32px;
+    padding: 0 10px;
+    font-size: 11.5px;
+    gap: 4px;
+    border-radius: var(--radius-pills);
+  }
+
+  .nav-actions .btn-filled,
+  .nav-cta-btn {
+    height: 32px;
+    font-size: 11.5px;
+    padding: 0 12px;
+    border-radius: var(--radius-pills);
   }
 
   .nav-links-capsule {
     display: none;
     position: absolute;
     top: calc(100% + 8px);
-    left: 10px;
-    right: 10px;
+    left: 8px;
+    right: 8px;
     background: var(--color-page-canvas);
     border: 1px solid var(--color-hairline-border);
     border-radius: 16px;
@@ -1251,44 +1327,56 @@ button, input, select, textarea {
 
   .mobile-toggle {
     display: flex;
+    padding: 6px;
   }
 
-  /* === HERO === */
-  .hero-section {
-    padding-top: 12px;
-    padding-bottom: 40px;
-  }
-
+  /* === HERO 3D TRACK SCALED DOWN ON MOBILE === */
   .subframe-3d-track-wrapper {
-    margin-bottom: 28px;
-    overflow-x: auto;
-    padding: 0 4px;
+    margin-top: 4px;
+    margin-bottom: 20px;
+    transform: scale(0.82);
+    transform-origin: center center;
+    padding: 0;
   }
 
   .jelly-radio-container {
     gap: 4px;
     padding: 6px 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
   }
 
   .jelly-radio-skin {
     padding: 0 10px;
-    font-size: 11px;
+    font-size: 11.5px;
     height: 34px;
+    gap: 6px;
+  }
+
+  .hero-section {
+    padding-top: 8px;
+    padding-bottom: 36px;
   }
 
   .hero-headline {
-    font-size: clamp(26px, 8vw, 40px);
-    letter-spacing: -1.5px;
-    line-height: 1.2;
+    margin-top: 6px;
     margin-bottom: 16px;
   }
 
-  .serif-flourish {
-    font-size: 0.95em;
+  .hero-title-main {
+    font-size: clamp(26px, 7.5vw, 36px);
+    letter-spacing: -1px;
+    line-height: 1.22;
+  }
+
+  .hero-title-en {
+    font-size: clamp(18px, 5.2vw, 24px);
+    margin-top: 4px;
+    line-height: 1.25;
   }
 
   .hero-subhead {
     font-size: 14px;
+    line-height: 1.6;
     margin-bottom: 24px;
     padding: 0 4px;
   }
@@ -1303,11 +1391,13 @@ button, input, select, textarea {
     width: 100%;
     justify-content: center;
     font-size: 14px;
+    height: 44px;
   }
 
   .hero-ui-mockup-frame {
-    padding: 18px;
-    margin-top: 28px;
+    padding: 16px;
+    margin-top: 24px;
+    border-radius: 16px;
   }
 
   .mockup-grid-spec {
@@ -1318,11 +1408,23 @@ button, input, select, textarea {
   /* === STATS === */
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 18px;
   }
 
   .stat-item-number {
-    font-size: 32px;
+    font-size: 30px;
+  }
+
+  /* === SAUDI MARQUEE === */
+  .logo-strip-section {
+    padding-top: 22px;
+    padding-bottom: 26px;
+  }
+
+  .logo-strip-item {
+    font-size: 12.5px;
+    padding: 6px 14px;
+    gap: 8px;
   }
 
   /* === CARDS === */
@@ -1333,49 +1435,57 @@ button, input, select, textarea {
 
   /* === SECTIONS === */
   .container {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 14px;
+    padding-right: 14px;
   }
 
   /* === FOOTER === */
   .footer-top-grid {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 28px;
   }
 
-  /* === FLOATING WHATSAPP — ICON ONLY, COMPACT === */
-  .vintage-whatsapp-float,
-  .vintage-whatsapp-float:not(.icon-only) {
-    bottom: 20px;
-    left: 16px;
-    width: 50px;
-    height: 50px;
+  /* === FLOATING WHATSAPP — COMPACT CIRCLE === */
+  .vintage-whatsapp-float {
+    bottom: 18px;
+    left: 18px;
+    width: 44px;
+    height: 44px;
     padding: 0;
     justify-content: center;
     border-radius: 50%;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
   }
 
   [dir="ltr"] .vintage-whatsapp-float {
     left: auto;
-    right: 16px;
+    right: 18px;
   }
 
-  .vintage-whatsapp-float .vintage-whatsapp-text,
-  .vintage-whatsapp-float .vintage-wa-text {
+  .vintage-whatsapp-float .vintage-wa-text,
+  .vintage-whatsapp-float .vintage-whatsapp-text {
     display: none;
   }
 
-  .vintage-whatsapp-float .whatsapp-icon,
-  .vintage-whatsapp-float .vintage-wa-icon {
-    width: 24px;
-    height: 24px;
+  .vintage-whatsapp-float .vintage-wa-icon,
+  .vintage-whatsapp-float .whatsapp-icon {
+    width: 22px;
+    height: 22px;
   }
 }
 
 /* Small phones */
 @media (max-width: 400px) {
-  .hero-headline {
+  .subframe-3d-track-wrapper {
+    transform: scale(0.76);
+  }
+
+  .hero-title-main {
     font-size: 24px;
+  }
+
+  .hero-title-en {
+    font-size: 17px;
   }
 
   .stats-grid {
