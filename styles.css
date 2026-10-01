@@ -1492,3 +1492,81 @@ button, input, select, textarea {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Full-Width Cinema TickerBar Styling */
+.hero-tickerbar-wrapper {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-top: 40px;
+  margin-bottom: 32px;
+  overflow: hidden;
+  background-color: #0038FF;
+  color: #ffffff;
+  padding: 14px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 56, 255, 0.18);
+  
+  /* الضباب والتلاشي الناعم الاحترافي على الأطراف اليمين واليسار */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+}
+
+@keyframes hero-tickerbar-scroll {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+.hero-tickerbar-track {
+  display: flex !important;
+  flex-direction: row !important;
+  width: max-content !important;
+  /* سرعة هادئة وسلسة جداً (45 ثانية) */
+  animation: hero-tickerbar-scroll 45s linear infinite !important;
+  will-change: transform;
+}
+
+.hero-tickerbar-wrapper:hover .hero-tickerbar-track {
+  animation-play-state: paused;
+}
+
+.ticker-group {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.t-val {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.t-slash {
+  font-size: 1.35rem;
+  font-weight: 700;
+  opacity: 0.4;
+  margin: 0 6px;
+}
+
+.t-lbl {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* تنسيق لوجو طبقة كفاصل محاذي وفاخر */
+.ticker-logo-icon {
+  height: 22px;
+  width: auto;
+  margin: 0 32px;
+  filter: brightness(0) invert(1); /* تحويل اللوجو للون الأبيض الصافي */
+  opacity: 0.9;
+  flex-shrink: 0;
+}
