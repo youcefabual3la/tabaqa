@@ -1493,61 +1493,67 @@ button, input, select, textarea {
   }
 }
 
-/* TickerBar Styling */
-.tickerbar-section {
+/* Hero TickerBar Inline Blue Oval Styling */
+.hero-tickerbar-wrapper {
   width: 100%;
+  max-width: 1000px;
+  margin: 32px auto 24px auto;
   overflow: hidden;
   background-color: #0038FF;
   color: #ffffff;
-  padding: 1rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 12px 0;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 56, 255, 0.25);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
 
-@keyframes tickerbar-scroll {
+@keyframes hero-tickerbar-scroll {
   0% { transform: translate3d(0, 0, 0); }
   100% { transform: translate3d(-50%, 0, 0); }
 }
 
-.tickerbar-fade {
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
-  width: 100%;
-  overflow: hidden;
-}
-
-.tickerbar-track {
+.hero-tickerbar-track {
   display: flex !important;
   flex-direction: row !important;
   width: max-content !important;
-  animation: tickerbar-scroll 30s linear infinite !important;
+  animation: hero-tickerbar-scroll 25s linear infinite !important;
   will-change: transform;
 }
 
-.tickerbar-section:hover .tickerbar-track {
+.hero-tickerbar-wrapper:hover .hero-tickerbar-track {
   animation-play-state: paused;
 }
 
-.tickerbar-group {
+.ticker-group {
   display: flex;
   align-items: center;
   white-space: nowrap;
 }
 
-.tickerbar-item {
-  font-family: sans-serif;
-  font-size: 1.5rem;
+.t-val {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.t-slash {
+  font-size: 1.25rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  opacity: 0.5;
+  margin: 0 4px;
+}
+
+.t-lbl {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-.tickerbar-item span:nth-child(2) {
-  opacity: 0.6;
-}
-
-.tickerbar-divider {
-  margin: 0 2rem;
-  font-size: 1.2rem;
-  opacity: 0.8;
+.t-dot {
+  margin: 0 24px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
 }
