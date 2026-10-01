@@ -1493,3 +1493,61 @@ button, input, select, textarea {
   }
 }
 
+/* TickerBar Styling */
+.tickerbar-section {
+  width: 100%;
+  overflow: hidden;
+  background-color: #0038FF;
+  color: #ffffff;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+@keyframes tickerbar-scroll {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+.tickerbar-fade {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  width: 100%;
+  overflow: hidden;
+}
+
+.tickerbar-track {
+  display: flex !important;
+  flex-direction: row !important;
+  width: max-content !important;
+  animation: tickerbar-scroll 30s linear infinite !important;
+  will-change: transform;
+}
+
+.tickerbar-section:hover .tickerbar-track {
+  animation-play-state: paused;
+}
+
+.tickerbar-group {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.tickerbar-item {
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.tickerbar-item span:nth-child(2) {
+  opacity: 0.6;
+}
+
+.tickerbar-divider {
+  margin: 0 2rem;
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
