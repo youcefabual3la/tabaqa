@@ -1495,15 +1495,11 @@ button, input, select, textarea {
 
 
 /* Full-Width Cinema TickerBar Styling */
+/* Clean Full-Width Hero TickerBar (No Overflow) */
 .hero-tickerbar-wrapper {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  margin-top: 40px;
-  margin-bottom: 32px;
+  width: 100%;
+  margin-top: 36px;
+  margin-bottom: 28px;
   overflow: hidden;
   background-color: #0038FF;
   color: #ffffff;
@@ -1512,9 +1508,9 @@ button, input, select, textarea {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 10px 30px rgba(0, 56, 255, 0.18);
   
-  /* الضباب والتلاشي الناعم الاحترافي على الأطراف اليمين واليسار */
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+  /* الضباب والتلاشي الاحترافي */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
 }
 
 @keyframes hero-tickerbar-scroll {
@@ -1526,8 +1522,7 @@ button, input, select, textarea {
   display: flex !important;
   flex-direction: row !important;
   width: max-content !important;
-  /* سرعة هادئة وسلسة جداً (45 ثانية) */
-  animation: hero-tickerbar-scroll 45s linear infinite !important;
+  animation: hero-tickerbar-scroll 40s linear infinite !important;
   will-change: transform;
 }
 
@@ -1542,31 +1537,42 @@ button, input, select, textarea {
 }
 
 .t-val {
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 800;
   letter-spacing: -0.01em;
 }
 
 .t-slash {
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 700;
   opacity: 0.4;
   margin: 0 6px;
 }
 
 .t-lbl {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-/* تنسيق لوجو طبقة كفاصل محاذي وفاخر */
 .ticker-logo-icon {
-  height: 22px;
+  height: 20px;
   width: auto;
-  margin: 0 32px;
-  filter: brightness(0) invert(1); /* تحويل اللوجو للون الأبيض الصافي */
+  margin: 0 28px;
+  filter: brightness(0) invert(1);
   opacity: 0.9;
   flex-shrink: 0;
+}
+
+/* تضبيط للجوال عشان ما يخرجش بره الشاشة */
+@media (max-width: 768px) {
+  .hero-tickerbar-wrapper {
+    margin-top: 24px;
+    margin-bottom: 20px;
+    padding: 10px 0;
+  }
+  .t-val { font-size: 1.05rem; }
+  .t-lbl { font-size: 0.75rem; }
+  .ticker-logo-icon { height: 16px; margin: 0 18px; }
 }
