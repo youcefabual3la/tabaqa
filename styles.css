@@ -133,24 +133,24 @@ button, input, select, textarea {
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--color-hairline-border);
   border-radius: var(--radius-nav);
-  padding: 10px 24px;
+  padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 12px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.03);
 }
 
 .nav-brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  flex-shrink: 0;
 }
 
 .nav-logo-full {
-  height: 38px;
+  height: 30px;
   width: auto;
-  max-width: 175px;
+  max-width: 160px;
   object-fit: contain;
 }
 
@@ -176,10 +176,11 @@ button, input, select, textarea {
   color: var(--color-ink-black);
 }
 
-.nav-actions {
+.nav-desktop-actions {
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-shrink: 0;
 }
 
 /* Buttons */
@@ -254,21 +255,88 @@ button, input, select, textarea {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-/* Mobile Hamburger Toggle */
+/* Hamburger button */
 .mobile-toggle {
   display: none;
   flex-direction: column;
-  gap: 4px;
+  justify-content: center;
+  gap: 5px;
   cursor: pointer;
   padding: 8px;
+  background: none;
+  border: none;
+  flex-shrink: 0;
+  border-radius: 8px;
+  transition: background 0.2s;
 }
 
+.mobile-toggle:hover { background: rgba(0,0,0,0.05); }
+
 .mobile-toggle span {
+  display: block;
   width: 22px;
   height: 2px;
   background-color: var(--color-ink-black);
-  transition: all 0.3s ease;
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center;
 }
+
+.mobile-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.mobile-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.mobile-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile dropdown panel */
+.mobile-menu {
+  max-width: var(--page-max-width);
+  margin: 6px auto 0;
+  background: rgba(250, 250, 250, 0.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-hairline-border);
+  border-radius: 16px;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.mobile-menu.open {
+  max-height: 440px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-menu-links {
+  list-style: none;
+  padding: 16px 20px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobile-menu-links .nav-link {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.mobile-menu-links .nav-link:hover { background: rgba(0,0,0,0.04); }
+
+.mobile-menu-actions {
+  padding: 12px 20px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid var(--color-hairline-border);
+}
+
+.mobile-menu-actions .nav-cta-btn { flex: 1; }
 
 /* ================= VINTAGE FLOATING WHATSAPP BUTTON ================= */
 .vintage-whatsapp-float {
@@ -1285,8 +1353,8 @@ button, input, select, textarea {
     max-width: 125px;
   }
 
-  .nav-actions {
-    gap: 6px;
+  .nav-desktop-actions {
+    display: none;
   }
 
   .lang-switch {
@@ -1297,7 +1365,7 @@ button, input, select, textarea {
     border-radius: var(--radius-pills);
   }
 
-  .nav-actions .btn-filled,
+  .nav-desktop-actions .btn-filled,
   .nav-cta-btn {
     height: 32px;
     font-size: 11.5px;

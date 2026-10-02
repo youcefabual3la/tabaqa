@@ -207,11 +207,11 @@ function setLanguage(lang) {
   document.documentElement.setAttribute('lang', lang);
   document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
   
-  // Update language button text
+  // Update language button text (desktop + mobile)
   const switchText = document.getElementById('lang-switch-text');
-  if (switchText) {
-    switchText.textContent = lang === 'ar' ? 'English' : 'عربي';
-  }
+  if (switchText) switchText.textContent = lang === 'ar' ? 'English' : 'عربي';
+  const mobileLangText = document.getElementById('mobile-lang-text');
+  if (mobileLangText) mobileLangText.textContent = lang === 'ar' ? 'English' : 'عربي';
   const switchBtn = document.getElementById('lang-switch-btn');
   if (switchBtn && !switchText) {
     switchBtn.textContent = lang === 'ar' ? 'English' : 'عربي';
@@ -419,20 +419,45 @@ function sendFooterInquiry() {
 
 // DOM Initialization
 document.addEventListener('DOMContentLoaded', () => {
-  // Mobile Menu Toggle
+  // Mobile Menu Toggle — opens .mobile-menu panel, animates hamburger → X
   const mobileToggle = document.getElementById('mobile-toggle');
-  const navLinks = document.getElementById('nav-links');
-  if (mobileToggle && navLinks) {
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (mobileToggle && mobileMenu) {
     mobileToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
+      const isOpen = mobileMenu.classList.toggle('open');
+      mobileToggle.classList.toggle('open', isOpen);
+      mobileMenu.setAttribute('aria-hidden', String(!isOpen));
+    });
+
+    // Close menu when a nav link inside it is clicked
+    mobileMenu.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        mobileToggle.classList.remove('open');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+      });
     });
   }
 
-  // Language Switch
+  // Desktop Language Switch
   const langBtn = document.getElementById('lang-switch-btn');
   if (langBtn) {
     langBtn.addEventListener('click', () => {
       setLanguage(currentLang === 'ar' ? 'en' : 'ar');
+    });
+  }
+
+  // Mobile Language Switch
+  const mobileLangBtn = document.getElementById('mobile-lang-btn');
+  if (mobileLangBtn) {
+    mobileLangBtn.addEventListener('click', () => {
+      setLanguage(currentLang === 'ar' ? 'en' : 'ar');
+      // Close menu after switching
+      if (mobileMenu) {
+        mobileMenu.classList.remove('open');
+        mobileToggle && mobileToggle.classList.remove('open');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+      }
     });
   }
 

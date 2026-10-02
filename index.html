@@ -15,15 +15,17 @@
 </head>
 <body>
 
-  <!-- ================= TOP NAVIGATION BAR (SUBFRAME STYLE) ================= -->
+  <!-- ================= TOP NAVIGATION BAR ================= -->
+  <!-- dir="ltr" مثبت على الـ nav دائماً: اللوجو يسار + الهامبرجر يمين بغض النظر عن لغة الصفحة -->
   <div class="header-wrapper">
-    <nav class="top-nav" aria-label="Main Navigation">
-      <!-- Original PDF Exact Tabaqa Full Logo -->
+    <nav class="top-nav" dir="ltr" aria-label="Main Navigation">
+
+      <!-- اللوجو: دائماً في اليسار -->
       <a href="#" class="nav-brand" title="وكالة طبقة الإعلامية — Tabaqa Media Agency">
         <img src="assets/logo.svg" alt="TABAQA MEDIA AGENCY" class="nav-logo-full">
       </a>
 
-      <!-- Subframe Floating Centered Capsule Nav -->
+      <!-- روابط الناف (كمبيوتر فقط) -->
       <ul class="nav-links-capsule" id="nav-links">
         <li><a href="#services" class="nav-link" data-i18n="navServices">الخدمات</a></li>
         <li><a href="#calculator" class="nav-link" data-i18n="navCalculator">اكتشف طبقتك</a></li>
@@ -32,22 +34,43 @@
         <li><a href="#contact" class="nav-link" data-i18n="navContact">تواصل معنا</a></li>
       </ul>
 
-      <!-- Navigation Actions -->
-      <div class="nav-actions">
+      <!-- أزرار الكمبيوتر: مخفية على الهاتف -->
+      <div class="nav-desktop-actions">
         <button class="lang-switch" id="lang-switch-btn" aria-label="Switch Language">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           <span id="lang-switch-text">English</span>
         </button>
         <button class="btn btn-filled nav-cta-btn" onclick="sendWhatsAppQuote()" data-i18n="startProject">ابدأ مشروعك</button>
-        
-        <div class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
       </div>
+
+      <!-- هامبرجر: مرئي على الهاتف فقط، دائماً في اليمين -->
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
     </nav>
+
+    <!-- Mobile Dropdown Menu -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <ul class="mobile-menu-links">
+        <li><a href="#services" class="nav-link" data-i18n="navServices">الخدمات</a></li>
+        <li><a href="#calculator" class="nav-link" data-i18n="navCalculator">اكتشف طبقتك</a></li>
+        <li><a href="#showcase" class="nav-link" data-i18n="navShowcase">أعمالنا</a></li>
+        <li><a href="#faq" class="nav-link" data-i18n="navFaq">الأسئلة الشائعة</a></li>
+        <li><a href="#contact" class="nav-link" data-i18n="navContact">تواصل معنا</a></li>
+      </ul>
+      <div class="mobile-menu-actions">
+        <button class="lang-switch mobile-lang-btn" id="mobile-lang-btn" aria-label="Switch Language">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span id="mobile-lang-text">English</span>
+        </button>
+        <button class="btn btn-filled nav-cta-btn w-full" onclick="sendWhatsAppQuote()" data-i18n="startProject">ابدأ مشروعك</button>
+      </div>
+    </div>
   </div>
+
 
   <main>
     <!-- ================= HERO DISPLAY SECTION WITH SLOW-MOTION FLOATING TRACK ================= -->
