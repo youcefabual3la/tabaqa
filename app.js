@@ -21,8 +21,8 @@ const translations = {
     heroTab3: "إعلانات وحسابات",
 
     // Hero
-    heroTitle: "أنت في أي طبقة؟",
-    heroSerifWord: "Which layer are you on?",
+    heroTitle: "السوق طبقات، أنت في أي طبقة؟",
+    heroSerifWord: "The market has layers. Which one are you on?",
     heroSubhead: "نساعد العلامات التجارية والشركات على الارتفاع إلى الطبقة العلياء في سوقها عبر ابتكار الهويات البصرية، إدارة الحسابات، تصاميم السوشيال ميديا، وتطوير المواقع الاحترافية.",
     heroCtaPrimary: "تحدث معنا عبر واتساب",
     heroCtaSecondary: "مشاهدة الأعمال (Watch demo)",
@@ -118,8 +118,8 @@ const translations = {
     heroTab3: "Ads & Accounts",
     
     // Hero
-    heroTitle: "Which layer are you on?",
-    heroSerifWord: "أنت في أي طبقة؟",
+    heroTitle: "The market has layers. Which one are you on?",
+    heroSerifWord: "السوق طبقات، أنت في أي طبقة؟",
     heroSubhead: "We help brands and companies ascend to the top tier in their market through bespoke visual identities, social media management, strategic ads, and high-converting web development.",
     heroCtaPrimary: "Chat on WhatsApp",
     heroCtaSecondary: "Watch Demo",
@@ -217,26 +217,29 @@ function setLanguage(lang) {
     switchBtn.textContent = lang === 'ar' ? 'English' : 'عربي';
   }
 
-  // Update all i18n elements (preserve innerHTML for elements with child icons)
+  // Update i18n elements — skip hero headline (handled below with innerHTML)
+  const heroI18nSkip = new Set(['heroTitle', 'heroSerifWord']);
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
+    if (heroI18nSkip.has(key)) return; // handled separately
     if (translations[lang] && translations[lang][key]) {
       el.textContent = translations[lang][key];
     }
   });
 
-  // Hero bilingual title — always show both, but swap primary/secondary
+  // Hero bilingual headline — use innerHTML to preserve .hero-keyword-glow spans
   const heroTitleMain = document.querySelector('.hero-title-main');
-  const heroTitleEn = document.querySelector('.hero-title-en');
+  const heroTitleEn   = document.querySelector('.hero-title-en');
   if (heroTitleMain && heroTitleEn) {
     if (lang === 'ar') {
-      heroTitleMain.textContent = 'أنت في أي طبقة؟';
-      heroTitleEn.textContent = 'Which layer are you on?';
+      heroTitleMain.innerHTML = 'السوق طبقات، أنت في أي <span class="hero-keyword-glow">طبقة</span>؟';
+      heroTitleMain.style.fontFamily = '';
+      heroTitleEn.innerHTML = 'The market has <span class="hero-keyword-glow">layers</span>. Which one are you on?';
       heroTitleEn.setAttribute('dir', 'ltr');
     } else {
-      heroTitleMain.textContent = 'Which layer are you on?';
-      heroTitleMain.style.fontFamily = "'Inter','Arial',sans-serif";
-      heroTitleEn.textContent = 'أنت في أي طبقة؟';
+      heroTitleMain.innerHTML = 'The market has <span class="hero-keyword-glow">layers</span>. Which one are you on?';
+      heroTitleMain.style.fontFamily = "'Instrument Serif','Georgia',serif";
+      heroTitleEn.innerHTML = 'السوق طبقات، أنت في أي <span class="hero-keyword-glow">طبقة</span>؟';
       heroTitleEn.removeAttribute('dir');
     }
   }

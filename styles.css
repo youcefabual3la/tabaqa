@@ -75,6 +75,7 @@ html {
   color: var(--color-ink-black);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; /* Prevent horizontal shift on lang toggle */
 }
 
 body {
@@ -86,6 +87,8 @@ body {
   overflow-x: hidden;
   direction: rtl; /* Arabic default */
   text-align: right;
+  /* Smooth direction/alignment transition on lang switch */
+  transition: text-align 0.25s ease;
 }
 
 [dir="ltr"] body, html[dir="ltr"] body {
@@ -531,6 +534,28 @@ button, input, select, textarea {
   unicode-bidi: isolate;
   margin-top: 8px;
   line-height: 1.25;
+}
+
+/* Titanium / soft-white glow highlight on keyword */
+.hero-keyword-glow {
+  position: relative;
+  display: inline-block;
+  padding: 0 10px 1px;
+  border-radius: 10px;
+  background: rgba(83, 87, 90, 0.07);
+  border: 1px solid rgba(83, 87, 90, 0.18);
+  box-shadow:
+    0 0 18px rgba(255, 255, 255, 0.22),
+    inset 0 1px 1px rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition: box-shadow 0.3s ease;
+}
+
+.hero-keyword-glow:hover {
+  box-shadow:
+    0 0 28px rgba(255, 255, 255, 0.35),
+    inset 0 1px 2px rgba(255, 255, 255, 0.7);
 }
 
 .hero-subhead {
@@ -1398,26 +1423,29 @@ button, input, select, textarea {
     padding: 6px;
   }
 
-  /* === HERO 3D TRACK SCALED DOWN ON MOBILE === */
+  /* === HERO 3D TRACK — MOBILE PROPER SCALING (no transform scale, animations stay intact) === */
   .subframe-3d-track-wrapper {
     margin-top: 4px;
-    margin-bottom: 20px;
-    transform: scale(0.82);
-    transform-origin: center center;
-    padding: 0;
+    margin-bottom: 18px;
+    padding: 0 4px;
   }
 
   .jelly-radio-container {
     gap: 4px;
-    padding: 6px 10px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    padding: 5px 8px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
   }
 
   .jelly-radio-skin {
     padding: 0 10px;
-    font-size: 11.5px;
-    height: 34px;
-    gap: 6px;
+    font-size: 12px;
+    height: 32px;
+    gap: 5px;
+  }
+
+  .jelly-radio-skin svg {
+    width: 13px;
+    height: 13px;
   }
 
   .hero-section {
@@ -1542,18 +1570,32 @@ button, input, select, textarea {
   }
 }
 
-/* Small phones */
+/* Small phones (max 400px) */
 @media (max-width: 400px) {
-  .subframe-3d-track-wrapper {
-    transform: scale(0.76);
+  .jelly-radio-container {
+    gap: 3px;
+    padding: 4px 6px;
+  }
+
+  .jelly-radio-skin {
+    padding: 0 8px;
+    font-size: 11px;
+    height: 29px;
+    gap: 4px;
+  }
+
+  .jelly-radio-skin svg {
+    width: 12px;
+    height: 12px;
   }
 
   .hero-title-main {
-    font-size: 24px;
+    font-size: 22px;
+    letter-spacing: -0.5px;
   }
 
   .hero-title-en {
-    font-size: 17px;
+    font-size: 16px;
   }
 
   .stats-grid {
