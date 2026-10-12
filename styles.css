@@ -19,7 +19,7 @@
   /* Fonts */
   --font-inter: 'IBM Plex Mono', 'Cairo', ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-arabic-heading: 'Cairo', 'Inter', system-ui, sans-serif;
-  --font-instrument-serif: 'Instrument Serif', 'Playfair Display', ui-serif, Georgia, serif;
+  --font-instrument-serif: 'IBM Plex Mono', monospace;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
   /* Typography Scale */
