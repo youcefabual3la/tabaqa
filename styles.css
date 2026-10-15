@@ -1606,8 +1606,10 @@ button, input, select, textarea {
 
 
 
+
+
 /* ========================================================== */
-/* إعدادات عزل الطبقات لضمان وجود المكعبات خلف كل شيء         */
+/* إعدادات عزل الطبقات الأساسية                                 */
 /* ========================================================== */
 .hero-section {
   position: relative !important;
@@ -1616,10 +1618,10 @@ button, input, select, textarea {
 }
 
 /* ========================================================== */
-/* إعدادات المكعبات: حجم ضخم وتوسيع للطرفين لملء الفراغ      */
+/* إعدادات المكعبات للكمبيوتر والشاشات الكبيرة                 */
 /* ========================================================== */
 :root {
-  --cube-size: 260px;            /* حجم ضخم وبارز جداً للكمبيوتر */
+  --cube-size: 260px;            /* الحجم الضخم والبارز */
   --grid-size: 18px;
   --grid-line-width: 1.5px;
   --color-yellow: #f8e71c;
@@ -1633,9 +1635,9 @@ button, input, select, textarea {
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: visible !important; /* للسماح للمكعب بالبروز وملء طرف الشاشة بالكامل */
-  pointer-events: none;         /* لمنع إعاقة الضغط على الأزرار والنصوص */
-  z-index: -1 !important;       /* يضمن وجود المكعبات في أعمق طبقة خلفية */
+  overflow: visible !important; 
+  pointer-events: none;         
+  z-index: -1 !important;       
 }
 
 .relume-cube-wrapper {
@@ -1645,16 +1647,16 @@ button, input, select, textarea {
   perspective: 1000px;
 }
 
-/* دفع المكعبات للأطراف لملء المساحة الجانبية المحددة */
+/* الكمبيوتر: إنزال المكعبات لتحت قليلاً لتبتعد عن النصوص */
 .relume-cube-left {
-  top: 45%;
-  left: -70px;                  /* بروز بارز للطرف الأيسر لملء الفراغ الجانبي */
+  top: 60%;                    /* نزلت لتحت أكثر (بدل 45%) */
+  left: -70px;
   transform: translateY(-50%);
 }
 
 .relume-cube-right {
-  top: 45%;
-  right: -70px;                 /* بروز بارز للطرف الأيمن لملء الفراغ الجانبي */
+  top: 60%;                    /* نزلت لتحت أكثر (بدل 45%) */
+  right: -70px;
   transform: translateY(-50%);
 }
 
@@ -1701,22 +1703,22 @@ button, input, select, textarea {
 }
 
 /* ========================================================== */
-/* الهواتف المحمولة: حجم ضخم ومناسب وملء الجوانب بشكل متناسق  */
+/* الهاتف المحمول: رفع المكعبات لفوق في الموبايل فقط          */
 /* ========================================================== */
 @media (max-width: 768px) {
   :root {
-    --cube-size: 160px;          /* تكبير الحجم على الموبايل برضه ليكون واضحاً */
-    --grid-size: 13px;
+    --cube-size: 150px;          /* حجم ممتاز للموبايل */
+    --grid-size: 12px;
   }
   
   .relume-cube-left { 
-    left: -45px; 
-    top: 48%;
-    transform: translateY(-50%);
+    left: -40px; 
+    top: 25%;                   /* طلعت لفوق في الشاشات الصغيرة */
+    transform: translateY(0);
   }
   .relume-cube-right { 
-    right: -45px; 
-    top: 48%;
-    transform: translateY(-50%);
+    right: -40px; 
+    top: 25%;                   /* طلعت لفوق في الشاشات الصغيرة */
+    transform: translateY(0);
   }
 }
