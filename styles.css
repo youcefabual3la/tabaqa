@@ -1603,19 +1603,20 @@ button, input, select, textarea {
   }
 }
 
+
+
 /* ========================================================== */
-/* تنسيق المكعبات في الأسفل وخلف الكلام تماماً                 */
+/* 1. ضبط حجم وشكل المكعبات الكبيرة والبارزة (للكمبيوتر)       */
 /* ========================================================== */
 :root {
-  --cube-size: 160px;            /* حجم المكعب */
-  --grid-size: 16px;             /* مسافة المربعات */
-  --grid-line-width: 1.5px;      /* سُمك الخطوط */
-  --color-yellow: #f8e71c;       /* الأصفر */
-  --color-orange: #f5a623;       /* البرتقالي */
-  --color-line: #111111;         /* لون الخطوط */
+  --cube-size: 210px;            /* حجم كبير ومميز وغير مبالغ فيه */
+  --grid-size: 18px;             /* مسافة المربعات الداخلية */
+  --grid-line-width: 1.5px;      /* سُمك خطوط الشبكة */
+  --color-yellow: #f8e71c;       /* الأصفر الأساسي */
+  --color-orange: #f5a623;       /* البرتقالي الأساسي */
+  --color-line: #111111;         /* لون الخطوط الداكن */
 }
 
-/* الحاوية العامة في الخلفية وبدون ما تعطل الماوس */
 .relume-cubes-container {
   position: absolute;
   top: 0;
@@ -1623,8 +1624,8 @@ button, input, select, textarea {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  pointer-events: none; 
-  z-index: 0; /* يجعلها تحت النصوص والأزرار */
+  pointer-events: none; /* تضمن أن الماوس يمرر عادي بدون إعاقة الأزرار */
+  z-index: 0;          /* يضمن بقاء المكعبات تحت كل النصوص والأزرار */
 }
 
 .relume-cube-wrapper {
@@ -1634,15 +1635,15 @@ button, input, select, textarea {
   perspective: 1000px;
 }
 
-/* إرجاع المكعبات للأسفل على الجانبين زي ما كانت */
+/* توزيع المكعبات على الأطراف بشكل واسع وجمالي */
 .relume-cube-left {
-  bottom: 10%;
-  left: -20px;
+  top: 80px;
+  left: -30px;
 }
 
 .relume-cube-right {
-  bottom: 10%;
-  right: -20px;
+  top: 120px;
+  right: -30px;
 }
 
 .relume-cube {
@@ -1687,11 +1688,21 @@ button, input, select, textarea {
   100% { transform: rotateX(-10deg) rotateY(220deg) translateY(5px); }
 }
 
+/* ========================================================== */
+/* 2. أحجام متوازنة وبارزة للهواتف المحمولة                     */
+/* ========================================================== */
 @media (max-width: 768px) {
   :root {
-    --cube-size: 90px;
-    --grid-size: 10px;
+    --cube-size: 110px; /* حجم كبير ومناسب جداً للشاشات الصغيرة بدون ما يغطي الكلام */
+    --grid-size: 12px;
   }
-  .relume-cube-left { left: -10px; bottom: 5%; }
-  .relume-cube-right { right: -10px; bottom: 5%; }
+  
+  .relume-cube-left { 
+    left: -20px; 
+    top: 40px; 
+  }
+  .relume-cube-right { 
+    right: -20px; 
+    top: 40px; 
+  }
 }
