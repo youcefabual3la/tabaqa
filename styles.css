@@ -1603,36 +1603,28 @@ button, input, select, textarea {
   }
 }
 
-
 /* ========================================================== */
-/* 1. ضبط قسم الهيرو ليكون الحاوية المرجعية للمكعبات          */
-/* ========================================================== */
-.hero-section {
-  position: relative !important;
-  z-index: 1;
-}
-
-/* ========================================================== */
-/* 2. متغيرات وتنسيقات المكعبات ثلاثية الأبعاد الاحترافية     */
+/* تنسيق المكعبات في الأسفل وخلف الكلام تماماً                 */
 /* ========================================================== */
 :root {
   --cube-size: 160px;            /* حجم المكعب */
-  --grid-size: 16px;             /* مقاس شبكة المربعات */
+  --grid-size: 16px;             /* مسافة المربعات */
   --grid-line-width: 1.5px;      /* سُمك الخطوط */
-  --color-yellow: #f8e71c;       /* اللون الأصفر */
-  --color-orange: #f5a623;       /* اللون البرتقالي */
-  --color-line: #111111;         /* لون الشبكة الداكن */
+  --color-yellow: #f8e71c;       /* الأصفر */
+  --color-orange: #f5a623;       /* البرتقالي */
+  --color-line: #111111;         /* لون الخطوط */
 }
 
+/* الحاوية العامة في الخلفية وبدون ما تعطل الماوس */
 .relume-cubes-container {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: visible;
-  pointer-events: none; /* لمنع إعاقة الضغط على الأزرار والنصوص */
-  z-index: 0;          /* يضمن ظهور المكعبات خلف الكلام والأزرار */
+  overflow: hidden;
+  pointer-events: none; 
+  z-index: 0; /* يجعلها تحت النصوص والأزرار */
 }
 
 .relume-cube-wrapper {
@@ -1642,15 +1634,15 @@ button, input, select, textarea {
   perspective: 1000px;
 }
 
-/* مواقع المكعبين على الجانبين الأيمن والأيسر */
+/* إرجاع المكعبات للأسفل على الجانبين زي ما كانت */
 .relume-cube-left {
-  top: 100px;
-  left: -50px;
+  bottom: 10%;
+  left: -20px;
 }
 
 .relume-cube-right {
-  top: 150px;
-  right: -50px;
+  bottom: 10%;
+  right: -20px;
 }
 
 .relume-cube {
@@ -1697,9 +1689,9 @@ button, input, select, textarea {
 
 @media (max-width: 768px) {
   :root {
-    --cube-size: 80px;
+    --cube-size: 90px;
     --grid-size: 10px;
   }
-  .relume-cube-left { left: -20px; top: 40px; }
-  .relume-cube-right { right: -20px; top: 60px; }
+  .relume-cube-left { left: -10px; bottom: 5%; }
+  .relume-cube-right { right: -10px; bottom: 5%; }
 }
