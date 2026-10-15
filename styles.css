@@ -1603,29 +1603,38 @@ button, input, select, textarea {
   }
 }
 
-/* --- متغيرات التصميم (CSS Custom Properties) --- */
-:root {
-  --cube-size: 180px;            /* حجم المكعب الأساسي */
-  --grid-size: 18px;             /* مسافة المربعات في الشبكة */
-  --grid-line-width: 1.5px;      /* سُمك خط الشبكة الواضح */
-  --color-yellow: #f8e71c;       /* الأصفر الأساسي المستوحى من الموقع */
-  --color-orange: #f5a623;       /* البرتقالي الأساسي */
-  --color-line: #111111;         /* لون الخطوط والشبكة الداكن */
+
+/* ========================================================== */
+/* 1. ضبط قسم الهيرو ليكون الحاوية المرجعية للمكعبات          */
+/* ========================================================== */
+.hero-section {
+  position: relative !important;
+  z-index: 1;
 }
 
-/* --- الحاوية العامة للمكعبات --- */
+/* ========================================================== */
+/* 2. متغيرات وتنسيقات المكعبات ثلاثية الأبعاد الاحترافية     */
+/* ========================================================== */
+:root {
+  --cube-size: 160px;            /* حجم المكعب */
+  --grid-size: 16px;             /* مقاس شبكة المربعات */
+  --grid-line-width: 1.5px;      /* سُمك الخطوط */
+  --color-yellow: #f8e71c;       /* اللون الأصفر */
+  --color-orange: #f5a623;       /* اللون البرتقالي */
+  --color-line: #111111;         /* لون الشبكة الداكن */
+}
+
 .relume-cubes-container {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  pointer-events: none; /* منع تفاعل الماوس لعدم إعاقة أزرار الموقع */
-  z-index: 1; /* خلف النصوص والأزرار الرئيسية */
+  overflow: visible;
+  pointer-events: none; /* لمنع إعاقة الضغط على الأزرار والنصوص */
+  z-index: 0;          /* يضمن ظهور المكعبات خلف الكلام والأزرار */
 }
 
-/* --- إعدادات المشهد والمنظور (Perspective) --- */
 .relume-cube-wrapper {
   position: absolute;
   width: var(--cube-size);
@@ -1633,18 +1642,17 @@ button, input, select, textarea {
   perspective: 1000px;
 }
 
-/* مواقع المكعبين على الجانبين */
+/* مواقع المكعبين على الجانبين الأيمن والأيسر */
 .relume-cube-left {
-  bottom: 5%;
-  left: -40px;
+  top: 100px;
+  left: -50px;
 }
 
 .relume-cube-right {
-  bottom: 5%;
-  right: -40px;
+  top: 150px;
+  right: -50px;
 }
 
-/* --- هيكل المكعب والـ 3D الحقيقي --- */
 .relume-cube {
   width: 100%;
   height: 100%;
@@ -1658,7 +1666,6 @@ button, input, select, textarea {
   animation-direction: alternate-reverse;
 }
 
-/* --- الأوجه الستة للمكعب --- */
 .cube-face {
   position: absolute;
   width: var(--cube-size);
@@ -1668,7 +1675,6 @@ button, input, select, textarea {
   border: var(--grid-line-width) solid var(--color-line);
 }
 
-/* تصميم شبكة المربعات بدقة باستخدام تدرجات الـ CSS (بدون صور) */
 .face-front, .face-back, .face-right, .face-left, .face-top, .face-bottom {
   background-color: var(--color-yellow);
   background-image: 
@@ -1676,64 +1682,24 @@ button, input, select, textarea {
     repeating-linear-gradient(90deg, var(--color-line), var(--color-line) var(--grid-line-width), transparent var(--grid-line-width), transparent var(--grid-size));
 }
 
-/* تظليل مختلف للأوجه لإظهار العمق والثلاثية الأبعاد */
-.face-front {
-  background-color: var(--color-yellow);
-  transform: rotateY(0deg) translateZ(calc(var(--cube-size) / 2));
-}
+.face-front  { background-color: var(--color-yellow); transform: rotateY(0deg) translateZ(calc(var(--cube-size) / 2)); }
+.face-back   { background-color: var(--color-orange); transform: rotateY(180deg) translateZ(calc(var(--cube-size) / 2)); }
+.face-right  { background-color: var(--color-orange); transform: rotateY(90deg) translateZ(calc(var(--cube-size) / 2)); }
+.face-left   { background-color: var(--color-yellow); transform: rotateY(-90deg) translateZ(calc(var(--cube-size) / 2)); }
+.face-top    { background-color: #fce83a; transform: rotateX(90deg) translateZ(calc(var(--cube-size) / 2)); }
+.face-bottom { background-color: #e0961b; transform: rotateX(-90deg) translateZ(calc(var(--cube-size) / 2)); }
 
-.face-back {
-  background-color: var(--color-orange);
-  transform: rotateY(180deg) translateZ(calc(var(--cube-size) / 2));
-}
-
-.face-right {
-  background-color: var(--color-orange);
-  transform: rotateY(90deg) translateZ(calc(var(--cube-size) / 2));
-}
-
-.face-left {
-  background-color: var(--color-yellow);
-  transform: rotateY(-90deg) translateZ(calc(var(--cube-size) / 2));
-}
-
-.face-top {
-  background-color: #fce83a;
-  transform: rotateX(90deg) translateZ(calc(var(--cube-size) / 2));
-}
-
-.face-bottom {
-  background-color: #e0961b;
-  transform: rotateX(-90deg) translateZ(calc(var(--cube-size) / 2));
-}
-
-/* --- حركات الدوران والطفو (Animations) --- */
 @keyframes relumeFloatAndSpin {
-  0% {
-    transform: rotateX(-15deg) rotateY(25deg) translateY(0px);
-  }
-  50% {
-    transform: rotateX(20deg) rotateY(145deg) translateY(-15px);
-  }
-  100% {
-    transform: rotateX(-10deg) rotateY(220deg) translateY(5px);
-  }
+  0%   { transform: rotateX(-15deg) rotateY(25deg) translateY(0px); }
+  50%  { transform: rotateX(20deg) rotateY(145deg) translateY(-15px); }
+  100% { transform: rotateX(-10deg) rotateY(220deg) translateY(5px); }
 }
 
-/* --- الاستجابة للشاشات الصغيرة والـ Zoom --- */
 @media (max-width: 768px) {
   :root {
-    --cube-size: 110px; /* تقليص الحجم تلقائياً على الموبايل لمنع التمرير الأفقي */
-    --grid-size: 12px;
+    --cube-size: 80px;
+    --grid-size: 10px;
   }
-  .relume-cube-left { left: -25px; bottom: 2%; }
-  .relume-cube-right { right: -25px; bottom: 2%; }
-}
-
-/* احترام إعدادات المستخدم لتقليل الحركة (Accessibility) */
-@media (prefers-reduced-motion: reduce) {
-  .relume-cube {
-    animation: none !important;
-    transform: rotateX(-15deg) rotateY(35deg) !important;
-  }
+  .relume-cube-left { left: -20px; top: 40px; }
+  .relume-cube-right { right: -20px; top: 60px; }
 }
