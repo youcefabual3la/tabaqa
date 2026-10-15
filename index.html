@@ -18,33 +18,6 @@
 </head>
 <body>
 
-  <!-- حاوية المكعبات الخلفية للزينة -->
-<div class="relume-cubes-container" aria-hidden="true">
-  <!-- المكعب الأيسر -->
-  <div class="relume-cube-wrapper relume-cube-left">
-    <div class="relume-cube">
-      <div class="cube-face face-front"></div>
-      <div class="cube-face face-back"></div>
-      <div class="cube-face face-right"></div>
-      <div class="cube-face face-left"></div>
-      <div class="cube-face face-top"></div>
-      <div class="cube-face face-bottom"></div>
-    </div>
-  </div>
-
-  <!-- المكعب الأيمن -->
-  <div class="relume-cube-wrapper relume-cube-right">
-    <div class="relume-cube">
-      <div class="cube-face face-front"></div>
-      <div class="cube-face face-back"></div>
-      <div class="cube-face face-right"></div>
-      <div class="cube-face face-left"></div>
-      <div class="cube-face face-top"></div>
-      <div class="cube-face face-bottom"></div>
-    </div>
-  </div>
-</div>
-
   
   <!-- ================= TOP NAVIGATION BAR ================= -->
   <!-- dir="ltr" مثبت على الـ nav دائماً: اللوجو يسار + الهامبرجر يمين بغض النظر عن لغة الصفحة -->
@@ -106,6 +79,36 @@
   <main>
     <!-- ================= HERO DISPLAY SECTION WITH SLOW-MOTION FLOATING TRACK ================= -->
     <section class="hero-section container">
+
+
+      <!-- حاوية المكعبات في الخلفية -->
+      <div class="relume-cubes-container" aria-hidden="true" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;">
+        <!-- المكعب الأيسر -->
+        <div class="relume-cube-wrapper relume-cube-left">
+          <div class="relume-cube">
+            <div class="cube-face face-front"></div>
+            <div class="cube-face face-back"></div>
+            <div class="cube-face face-right"></div>
+            <div class="cube-face face-left"></div>
+            <div class="cube-face face-top"></div>
+            <div class="cube-face face-bottom"></div>
+          </div>
+        </div>
+
+        <!-- المكعب الأيمن -->
+        <div class="relume-cube-wrapper relume-cube-right">
+          <div class="relume-cube">
+            <div class="cube-face face-front"></div>
+            <div class="cube-face face-back"></div>
+            <div class="cube-face face-right"></div>
+            <div class="cube-face face-left"></div>
+            <div class="cube-face face-top"></div>
+            <div class="cube-face face-bottom"></div>
+          </div>
+        </div>
+      </div>
+
+
       
       <!-- REACT BITS JELLY RADIO WITH SLOW MOTION FLOATING ANIMATION -->
       <div class="subframe-3d-track-wrapper">
