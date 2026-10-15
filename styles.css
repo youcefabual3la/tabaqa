@@ -1606,20 +1606,21 @@ button, input, select, textarea {
 
 
 /* ========================================================== */
-/* إعدادات عزل الطبقات لضمان بقاء المكعبات خلف كل شيء تماماً  */
+/* 1. إعدادات عزل الطبقات لضمان بقاء المكعبات خلف كل شيء تماماً  */
 /* ========================================================== */
 .hero-section {
   position: relative !important;
   z-index: 1 !important;
-  isolation: isolate;
+  isolation: isolate; /* السر البرمجي لضمان الخلفية الكاملة */
 }
 
 /* ========================================================== */
-/* إعدادات المكعبات للكمبيوتر (مستقرة في الأسفل تماماً)         */
+/* 2. إعدادات المكعبات للكمبيوتر (مستقرة في الأسفل تماماً)       */
 /* ========================================================== */
 :root {
-  --cube-size: 240px;            /* حجم كبير وبارز ومميز */
-  --grid-size: 18px;
+  --cube-large: 230px;           /* حجم ضخم وبارز وفخم للكمبيوتر */
+  --cube-small: 140px;           /* حجم متناسق للمكعبات الإضافية */
+  --grid-size: 16px;
   --grid-line-width: 1.5px;
   --color-yellow: #f8e71c;
   --color-orange: #f5a623;
@@ -1633,32 +1634,51 @@ button, input, select, textarea {
   width: 100%;
   height: 100%;
   overflow: visible !important; 
-  pointer-events: none;         
-  z-index: -1 !important;       
+  pointer-events: none;         /* لمنع أي إعاقة للماوس */
+  z-index: -1 !important;       /* تجعل المكعبات خلف كل المحتوى تماماً */
 }
 
+/* قاعدة عامة لكل المكعبات */
 .relume-cube-wrapper {
   position: absolute;
-  width: var(--cube-size);
-  height: var(--cube-size);
   perspective: 1000px;
 }
 
-/* الكمبيوتر: تثبيت المكعبات في الأسفل على اليمين واليسار حسب رسمتك */
-.relume-cube-left {
-  bottom: 20px;                /* استقرار في أسفل اليسار */
-  left: -40px;                 /* بروز جانبي خفيف وفخم */
+/* الكمبيوتر: تثبيت المكعبات الأساسية في الأسفل على اليمين واليسار */
+.cube-1 {
+  width: var(--cube-large);
+  height: var(--cube-large);
+  bottom: 20px;                /* استقرار في أسفل اليسار تماماً */
+  left: -50px;                 /* بروز جانبي خفيف وفخم للخارج */
   top: auto;
-  transform: none;
 }
 
-.relume-cube-right {
-  bottom: 20px;                /* استقرار في أسفل اليمين */
-  right: -40px;                /* بروز جانبي خفيف وفخم */
+.cube-2 {
+  width: var(--cube-large);
+  height: var(--cube-large);
+  bottom: 20px;                /* استقرار في أسفل اليمين تماماً */
+  right: -50px;                /* بروز جانبي خفيف وفخم للخارج */
   top: auto;
-  transform: none;
 }
 
+/* المكعبات الإضافية لإضافة عمق فني (متناغمة مع المكعبات الأساسية) */
+.cube-3 {
+  width: var(--cube-small);
+  height: var(--cube-small);
+  bottom: 150px;               /* متدرج للأعلى قليلاً على اليسار */
+  left: 80px;
+  opacity: 0.85;               /* شفافية خفيفة لدمج أفضل في الخلفية */
+}
+
+.cube-4 {
+  width: var(--cube-small);
+  height: var(--cube-small);
+  bottom: 120px;               /* متدرج للأعلى قليلاً على اليمين */
+  right: 120px;
+  opacity: 0.85;
+}
+
+/* --- خصائص الحركة والتدوير لكل المكعبات --- */
 .relume-cube {
   width: 100%;
   height: 100%;
@@ -1667,57 +1687,6 @@ button, input, select, textarea {
   animation: relumeFloatAndSpin 18s ease-in-out infinite alternate;
 }
 
-.relume-cube-right .relume-cube {
+.cube-2 .relume-cube, .cube-4 .relume-cube {
   animation-duration: 22s;
-  animation-direction: alternate-reverse;
-}
-
-.cube-face {
-  position: absolute;
-  width: var(--cube-size);
-  height: var(--cube-size);
-  backface-visibility: hidden;
-  box-sizing: border-box;
-  border: var(--grid-line-width) solid var(--color-line);
-}
-
-.face-front, .face-back, .face-right, .face-left, .face-top, .face-bottom {
-  background-color: var(--color-yellow);
-  background-image: 
-    repeating-linear-gradient(0deg, var(--color-line), var(--color-line) var(--grid-line-width), transparent var(--grid-line-width), transparent var(--grid-size)),
-    repeating-linear-gradient(90deg, var(--color-line), var(--color-line) var(--grid-line-width), transparent var(--grid-line-width), transparent var(--grid-size));
-}
-
-.face-front  { background-color: var(--color-yellow); transform: rotateY(0deg) translateZ(calc(var(--cube-size) / 2)); }
-.face-back   { background-color: var(--color-orange); transform: rotateY(180deg) translateZ(calc(var(--cube-size) / 2)); }
-.face-right  { background-color: var(--color-orange); transform: rotateY(90deg) translateZ(calc(var(--cube-size) / 2)); }
-.face-left   { background-color: var(--color-yellow); transform: rotateY(-90deg) translateZ(calc(var(--cube-size) / 2)); }
-.face-top    { background-color: #fce83a; transform: rotateX(90deg) translateZ(calc(var(--cube-size) / 2)); }
-.face-bottom { background-color: #e0961b; transform: rotateX(-90deg) translateZ(calc(var(--cube-size) / 2)); }
-
-@keyframes relumeFloatAndSpin {
-  0%   { transform: rotateX(-15deg) rotateY(25deg) translateY(0px); }
-  50%  { transform: rotateX(20deg) rotateY(145deg) translateY(-15px); }
-  100% { transform: rotateX(-10deg) rotateY(220deg) translateY(5px); }
-}
-
-/* ========================================================== */
-/* الهاتف المحمول: رفع المكعبات للأعلى قليلاً لتتوسط الأزرار     */
-/* ========================================================== */
-@media (max-width: 768px) {
-  :root {
-    --cube-size: 150px;          /* حجم ممتاز ومناسب للموبايل */
-    --grid-size: 12px;
-  }
-  
-  .relume-cube-left { 
-    left: -30px; 
-    top: 550px;                  /* رفعت للأعلى قليلاً في الموبايل حسب رسمتك */
-    bottom: auto;
-  }
-  .relume-cube-right { 
-    right: -30px; 
-    top: 550px;                  /* رفعت للأعلى قليلاً في الموبايل حسب رسمتك */
-    bottom: auto;
-  }
-}
+  animation-direction: alternate
