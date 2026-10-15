@@ -1606,7 +1606,7 @@ button, input, select, textarea {
 
 
 /* ========================================================== */
-/* 1. إعدادات عزل الطبقات الأساسية                                 */
+/* إعدادات عزل الطبقات الأساسية                                 */
 /* ========================================================== */
 .hero-section {
   position: relative !important;
@@ -1615,12 +1615,11 @@ button, input, select, textarea {
 }
 
 /* ========================================================== */
-/* 2. المتغيرات والمواقع للكمبيوتر                                */
+/* إعدادات المكعبات للكمبيوتر والشاشات الكبيرة                 */
 /* ========================================================== */
 :root {
-  --cube-large: 230px;           /* حجم المكعبات الكبيرة */
-  --cube-small: 130px;           /* حجم المكعبات الثانوية */
-  --grid-size: 16px;
+  --cube-size: 260px;            /* الحجم الضخم والبارز */
+  --grid-size: 18px;
   --grid-line-width: 1.5px;
   --color-yellow: #f8e71c;
   --color-orange: #f5a623;
@@ -1635,46 +1634,29 @@ button, input, select, textarea {
   height: 100%;
   overflow: visible !important; 
   pointer-events: none;         
-  z-index: -1 !important;       /* خلف كل محتوى الصفحة */
+  z-index: -1 !important;       
 }
 
 .relume-cube-wrapper {
   position: absolute;
+  width: var(--cube-size);
+  height: var(--cube-size);
   perspective: 1000px;
 }
 
-/* الكمبيوتر: تنزل للأسفل قليلاً حسب طلبك */
-.cube-1 {
-  width: var(--cube-large);
-  height: var(--cube-large);
-  bottom: 10px;
-  left: -50px;
+/* الكمبيوتر: إنزال المكعبات لتحت قليلاً لتبتعد عن النصوص */
+.relume-cube-left {
+  top: 60%;                    /* نزلت لتحت أكثر (بدل 45%) */
+  left: -70px;
+  transform: translateY(-50%);
 }
 
-.cube-2 {
-  width: var(--cube-large);
-  height: var(--cube-large);
-  bottom: 10px;
-  right: -50px;
+.relume-cube-right {
+  top: 60%;                    /* نزلت لتحت أكثر (بدل 45%) */
+  right: -70px;
+  transform: translateY(-50%);
 }
 
-.cube-3 {
-  width: var(--cube-small);
-  height: var(--cube-small);
-  bottom: 140px;
-  left: 70px;
-  opacity: 0.85;
-}
-
-.cube-4 {
-  width: var(--cube-small);
-  height: var(--cube-small);
-  bottom: 120px;
-  right: 110px;
-  opacity: 0.85;
-}
-
-/* --- حركة وتدوير المكعبات --- */
 .relume-cube {
   width: 100%;
   height: 100%;
@@ -1683,38 +1665,33 @@ button, input, select, textarea {
   animation: relumeFloatAndSpin 18s ease-in-out infinite alternate;
 }
 
-.cube-2 .relume-cube, .cube-4 .relume-cube {
+.relume-cube-right .relume-cube {
   animation-duration: 22s;
   animation-direction: alternate-reverse;
 }
 
 .cube-face {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: var(--cube-size);
+  height: var(--cube-size);
   backface-visibility: hidden;
   box-sizing: border-box;
   border: var(--grid-line-width) solid var(--color-line);
+}
+
+.face-front, .face-back, .face-right, .face-left, .face-top, .face-bottom {
   background-color: var(--color-yellow);
   background-image: 
     repeating-linear-gradient(0deg, var(--color-line), var(--color-line) var(--grid-line-width), transparent var(--grid-line-width), transparent var(--grid-size)),
     repeating-linear-gradient(90deg, var(--color-line), var(--color-line) var(--grid-line-width), transparent var(--grid-line-width), transparent var(--grid-size));
 }
 
-/* ضبط زوايا أوجُه المكعبات بشكل صحيحة ودقيق بدون اختفاء */
-.cube-1 .face-front, .cube-2 .face-front   { transform: rotateY(0deg) translateZ(calc(var(--cube-large) / 2)); background-color: var(--color-yellow); }
-.cube-1 .face-back, .cube-2 .face-back     { transform: rotateY(180deg) translateZ(calc(var(--cube-large) / 2)); background-color: var(--color-orange); }
-.cube-1 .face-right, .cube-2 .face-right   { transform: rotateY(90deg) translateZ(calc(var(--cube-large) / 2)); background-color: var(--color-orange); }
-.cube-1 .face-left, .cube-2 .face-left     { transform: rotateY(-90deg) translateZ(calc(var(--cube-large) / 2)); background-color: var(--color-yellow); }
-.cube-1 .face-top, .cube-2 .face-top       { transform: rotateX(90deg) translateZ(calc(var(--cube-large) / 2)); background-color: #fce83a; }
-.cube-1 .face-bottom, .cube-2 .face-bottom { transform: rotateX(-90deg) translateZ(calc(var(--cube-large) / 2)); background-color: #e0961b; }
-
-.cube-3 .face-front, .cube-4 .face-front   { transform: rotateY(0deg) translateZ(calc(var(--cube-small) / 2)); background-color: var(--color-yellow); }
-.cube-3 .face-back, .cube-4 .face-back     { transform: rotateY(180deg) translateZ(calc(var(--cube-small) / 2)); background-color: var(--color-orange); }
-.cube-3 .face-right, .cube-4 .face-right   { transform: rotateY(90deg) translateZ(calc(var(--cube-small) / 2)); background-color: var(--color-orange); }
-.cube-3 .face-left, .cube-4 .face-left     { transform: rotateY(-90deg) translateZ(calc(var(--cube-small) / 2)); background-color: var(--color-yellow); }
-.cube-3 .face-top, .cube-4 .face-top       { transform: rotateX(90deg) translateZ(calc(var(--cube-small) / 2)); background-color: #fce83a; }
-.cube-3 .face-bottom, .cube-4 .face-bottom { transform: rotateX(-90deg) translateZ(calc(var(--cube-small) / 2)); background-color: #e0961b; }
+.face-front  { background-color: var(--color-yellow); transform: rotateY(0deg) translateZ(calc(var(--cube-size) / 2)); }
+.face-back   { background-color: var(--color-orange); transform: rotateY(180deg) translateZ(calc(var(--cube-size) / 2)); }
+.face-right  { background-color: var(--color-orange); transform: rotateY(90deg) translateZ(calc(var(--cube-size) / 2)); }
+.face-left   { background-color: var(--color-yellow); transform: rotateY(-90deg) translateZ(calc(var(--cube-size) / 2)); }
+.face-top    { background-color: #fce83a; transform: rotateX(90deg) translateZ(calc(var(--cube-size) / 2)); }
+.face-bottom { background-color: #e0961b; transform: rotateX(-90deg) translateZ(calc(var(--cube-size) / 2)); }
 
 @keyframes relumeFloatAndSpin {
   0%   { transform: rotateX(-15deg) rotateY(25deg) translateY(0px); }
@@ -1723,26 +1700,22 @@ button, input, select, textarea {
 }
 
 /* ========================================================== */
-/* 3. للهواتف المحمولة: رفع المكعبات للأعلى قليلاً              */
+/* الهاتف المحمول: رفع المكعبات لفوق في الموبايل فقط          */
 /* ========================================================== */
 @media (max-width: 768px) {
   :root {
-    --cube-large: 140px;
-    --cube-small: 80px;
+    --cube-size: 150px;          /* حجم ممتاز للموبايل */
+    --grid-size: 12px;
   }
   
-  .cube-1 { 
-    left: -35px; 
-    top: 480px; 
-    bottom: auto;
+  .relume-cube-left { 
+    left: -40px; 
+    top: 25%;                   /* طلعت لفوق في الشاشات الصغيرة */
+    transform: translateY(0);
   }
-  .cube-2 { 
-    right: -35px; 
-    top: 500px; 
-    bottom: auto;
-  }
-  
-  .cube-3, .cube-4 { 
-    display: none; 
+  .relume-cube-right { 
+    right: -40px; 
+    top: 25%;                   /* طلعت لفوق في الشاشات الصغيرة */
+    transform: translateY(0);
   }
 }
