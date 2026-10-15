@@ -1605,9 +1605,8 @@ button, input, select, textarea {
 
 
 
-
 /* ========================================================== */
-/* 1. إعدادات عزل الطبقات لضمان بقاء المكعبات خلف كل شيء         */
+/* إعدادات عزل الطبقات لضمان بقاء المكعبات خلف كل شيء تماماً  */
 /* ========================================================== */
 .hero-section {
   position: relative !important;
@@ -1616,12 +1615,11 @@ button, input, select, textarea {
 }
 
 /* ========================================================== */
-/* 2. المتغيرات وأحجام المكعبات المتعددة                       */
+/* إعدادات المكعبات للكمبيوتر (مستقرة في الأسفل تماماً)         */
 /* ========================================================== */
 :root {
-  --cube-large: 220px;           /* حجم المكعبات الكبيرة الأساسية */
-  --cube-small: 130px;           /* حجم المكعبات الثانوية الإضافية */
-  --grid-size: 16px;
+  --cube-size: 240px;            /* حجم كبير وبارز ومميز */
+  --grid-size: 18px;
   --grid-line-width: 1.5px;
   --color-yellow: #f8e71c;
   --color-orange: #f5a623;
@@ -1636,48 +1634,31 @@ button, input, select, textarea {
   height: 100%;
   overflow: visible !important; 
   pointer-events: none;         
-  z-index: -1 !important;       /* خلف كل النصوص والأزرار */
+  z-index: -1 !important;       
 }
 
-/* قاعدة عامة لكل المكعبات */
 .relume-cube-wrapper {
   position: absolute;
+  width: var(--cube-size);
+  height: var(--cube-size);
   perspective: 1000px;
 }
 
-/* --- المكعبات الكبيرة (على الأطراف في الأعلى والأسفل) --- */
-.cube-1 {
-  width: var(--cube-large);
-  height: var(--cube-large);
-  top: 30px;
-  left: -50px;
+/* الكمبيوتر: تثبيت المكعبات في الأسفل على اليمين واليسار حسب رسمتك */
+.relume-cube-left {
+  bottom: 20px;                /* استقرار في أسفل اليسار */
+  left: -40px;                 /* بروز جانبي خفيف وفخم */
+  top: auto;
+  transform: none;
 }
 
-.cube-2 {
-  width: var(--cube-large);
-  height: var(--cube-large);
-  bottom: 20px;
-  right: -50px;
+.relume-cube-right {
+  bottom: 20px;                /* استقرار في أسفل اليمين */
+  right: -40px;                /* بروز جانبي خفيف وفخم */
+  top: auto;
+  transform: none;
 }
 
-/* --- المكعبات الثانوية الأصغر (لإضافة عمق وتنسيق متناسق) --- */
-.cube-3 {
-  width: var(--cube-small);
-  height: var(--cube-small);
-  bottom: 60px;
-  left: 120px;
-  opacity: 0.85; /* شفافية خفيفة لكي تدمج بسلاسة في الخلفية */
-}
-
-.cube-4 {
-  width: var(--cube-small);
-  height: var(--cube-small);
-  top: 40px;
-  right: 140px;
-  opacity: 0.85;
-}
-
-/* --- خصائص الحركة والتدوير لكل المكعبات --- */
 .relume-cube {
   width: 100%;
   height: 100%;
@@ -1686,15 +1667,15 @@ button, input, select, textarea {
   animation: relumeFloatAndSpin 18s ease-in-out infinite alternate;
 }
 
-.cube-2 .relume-cube, .cube-4 .relume-cube {
+.relume-cube-right .relume-cube {
   animation-duration: 22s;
   animation-direction: alternate-reverse;
 }
 
 .cube-face {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: var(--cube-size);
+  height: var(--cube-size);
   backface-visibility: hidden;
   box-sizing: border-box;
   border: var(--grid-line-width) solid var(--color-line);
@@ -1707,20 +1688,12 @@ button, input, select, textarea {
     repeating-linear-gradient(90deg, var(--color-line), var(--color-line) var(--grid-line-width), transparent var(--grid-line-width), transparent var(--grid-size));
 }
 
-.face-front  { background-color: var(--color-yellow); transform: rotateY(0deg) translateZ(calc(var(--cube-large) / 2)); }
-.face-back   { background-color: var(--color-orange); transform: rotateY(180deg) translateZ(calc(var(--cube-large) / 2)); }
-.face-right  { background-color: var(--color-orange); transform: rotateY(90deg) translateZ(calc(var(--cube-large) / 2)); }
-.face-left   { background-color: var(--color-yellow); transform: rotateY(-90deg) translateZ(calc(var(--cube-large) / 2)); }
-.face-top    { background-color: #fce83a; transform: rotateX(90deg) translateZ(calc(var(--cube-large) / 2)); }
-.face-bottom { background-color: #e0961b; transform: rotateX(-90deg) translateZ(calc(var(--cube-large) / 2)); }
-
-/* تعديل حجم الـ translateZ للمكعبات الصغيرة تناسبياً */
-.cube-3 .face-front, .cube-4 .face-front  { transform: rotateY(0deg) translateZ(calc(var(--cube-small) / 2)); }
-.cube-3 .face-back, .cube-4 .face-back   { transform: rotateY(180deg) translateZ(calc(var(--cube-small) / 2)); }
-.cube-3 .face-right, .cube-4 .face-right  { transform: rotateY(90deg) translateZ(calc(var(--cube-small) / 2)); }
-.cube-3 .face-left, .cube-4 .face-left   { transform: rotateY(-90deg) translateZ(calc(var(--cube-small) / 2)); }
-.cube-3 .face-top, .cube-4 .face-top    { transform: rotateX(90deg) translateZ(calc(var(--cube-small) / 2)); }
-.cube-3 .face-bottom, .cube-4 .face-bottom { transform: rotateX(-90deg) translateZ(calc(var(--cube-small) / 2)); }
+.face-front  { background-color: var(--color-yellow); transform: rotateY(0deg) translateZ(calc(var(--cube-size) / 2)); }
+.face-back   { background-color: var(--color-orange); transform: rotateY(180deg) translateZ(calc(var(--cube-size) / 2)); }
+.face-right  { background-color: var(--color-orange); transform: rotateY(90deg) translateZ(calc(var(--cube-size) / 2)); }
+.face-left   { background-color: var(--color-yellow); transform: rotateY(-90deg) translateZ(calc(var(--cube-size) / 2)); }
+.face-top    { background-color: #fce83a; transform: rotateX(90deg) translateZ(calc(var(--cube-size) / 2)); }
+.face-bottom { background-color: #e0961b; transform: rotateX(-90deg) translateZ(calc(var(--cube-size) / 2)); }
 
 @keyframes relumeFloatAndSpin {
   0%   { transform: rotateX(-15deg) rotateY(25deg) translateY(0px); }
@@ -1729,16 +1702,22 @@ button, input, select, textarea {
 }
 
 /* ========================================================== */
-/* 3. الهواتف المحمولة: تنسيق المكعبات المتعددة بشكل متناسق     */
+/* الهاتف المحمول: رفع المكعبات للأعلى قليلاً لتتوسط الأزرار     */
 /* ========================================================== */
 @media (max-width: 768px) {
   :root {
-    --cube-large: 130px;
-    --cube-small: 80px;
+    --cube-size: 150px;          /* حجم ممتاز ومناسب للموبايل */
+    --grid-size: 12px;
   }
   
-  .cube-1 { top: 10px; left: -25px; }
-  .cube-2 { bottom: 10px; right: -25px; }
-  .cube-3 { display: none; } /* إخفاء المكعبات الإضافية في الموبايل لعدم الازدحام */
-  .cube-4 { display: none; }
+  .relume-cube-left { 
+    left: -30px; 
+    top: 550px;                  /* رفعت للأعلى قليلاً في الموبايل حسب رسمتك */
+    bottom: auto;
+  }
+  .relume-cube-right { 
+    right: -30px; 
+    top: 550px;                  /* رفعت للأعلى قليلاً في الموبايل حسب رسمتك */
+    bottom: auto;
+  }
 }
