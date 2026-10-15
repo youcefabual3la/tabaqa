@@ -1719,3 +1719,87 @@ button, input, select, textarea {
     transform: none;
   }
 }
+
+
+
+/* Full-Width Cinema TickerBar Styling */
+.hero-tickerbar-wrapper {
+  width: 100%;
+  margin-top: 36px;
+  margin-bottom: 28px;
+  overflow: hidden;
+  background-color: #ff00ea; /* أو اجعله #0038FF إذا أردت اللون الأزرق */
+  color: #ffffff;
+  padding: 14px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(255, 0, 234, 0.2);
+  
+  /* الضباب والتلاشي الاحترافي عند الأطراف */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+@keyframes hero-tickerbar-scroll {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+.hero-tickerbar-track {
+  display: flex !important;
+  flex-direction: row !important;
+  width: max-content !important;
+  animation: hero-tickerbar-scroll 40s linear infinite !important;
+  will-change: transform;
+}
+
+.hero-tickerbar-wrapper:hover .hero-tickerbar-track {
+  animation-play-state: paused;
+}
+
+.ticker-group {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.t-val {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.t-slash {
+  font-size: 1.25rem;
+  font-weight: 700;
+  opacity: 0.4;
+  margin: 0 6px;
+}
+
+.t-lbl {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.ticker-logo-icon {
+  height: 20px;
+  width: auto;
+  margin: 0 28px;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+  flex-shrink: 0;
+}
+
+/* تجاوب الجوال */
+@media (max-width: 768px) {
+  .hero-tickerbar-wrapper {
+    margin-top: 24px;
+    margin-bottom: 20px;
+    padding: 10px 0;
+  }
+  .t-val { font-size: 1.05rem; }
+  .t-lbl { font-size: 0.75rem; }
+  .ticker-logo-icon { height: 16px; margin: 0 18px; }
+}
